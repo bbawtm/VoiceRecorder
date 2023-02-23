@@ -7,20 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9470759329A75DB8000508B3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9470759229A75DB8000508B3 /* TabBarController.swift */; };
+		9470759529A75F4F000508B3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9470759429A75F4F000508B3 /* HomeViewController.swift */; };
+		9470759729A75F81000508B3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9470759629A75F81000508B3 /* SearchViewController.swift */; };
+		9470759929A75FDA000508B3 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9470759829A75FDA000508B3 /* RecordViewController.swift */; };
+		9470759B29A76142000508B3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9470759A29A76142000508B3 /* SettingsViewController.swift */; };
+		9470759D29A762BB000508B3 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9470759C29A762BB000508B3 /* HistoryViewController.swift */; };
 		94ED28F929A750D000111C8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ED28F829A750D000111C8F /* AppDelegate.swift */; };
 		94ED28FB29A750D000111C8F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ED28FA29A750D000111C8F /* SceneDelegate.swift */; };
-		94ED28FD29A750D000111C8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ED28FC29A750D000111C8F /* ViewController.swift */; };
-		94ED290029A750D000111C8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94ED28FE29A750D000111C8F /* Main.storyboard */; };
 		94ED290229A750D000111C8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94ED290129A750D000111C8F /* Assets.xcassets */; };
 		94ED290529A750D000111C8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94ED290329A750D000111C8F /* LaunchScreen.storyboard */; };
+		94ED291129A751A900111C8F /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 94ED291029A751A900111C8F /* Realm */; };
+		94ED291329A751A900111C8F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 94ED291229A751A900111C8F /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9470759229A75DB8000508B3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		9470759429A75F4F000508B3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9470759629A75F81000508B3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		9470759829A75FDA000508B3 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		9470759A29A76142000508B3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		9470759C29A762BB000508B3 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		94ED28F529A750D000111C8F /* VoiceRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94ED28F829A750D000111C8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94ED28FA29A750D000111C8F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		94ED28FC29A750D000111C8F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		94ED28FF29A750D000111C8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		94ED290129A750D000111C8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94ED290429A750D000111C8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94ED290629A750D000111C8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94ED291329A751A900111C8F /* RealmSwift in Frameworks */,
+				94ED291129A751A900111C8F /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +68,43 @@
 		94ED28F729A750D000111C8F /* VoiceRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				94ED290E29A7510600111C8F /* View */,
+				94ED290D29A750FF00111C8F /* ViewModel */,
+				94ED290C29A750E600111C8F /* Model */,
 				94ED28F829A750D000111C8F /* AppDelegate.swift */,
 				94ED28FA29A750D000111C8F /* SceneDelegate.swift */,
-				94ED28FC29A750D000111C8F /* ViewController.swift */,
-				94ED28FE29A750D000111C8F /* Main.storyboard */,
-				94ED290129A750D000111C8F /* Assets.xcassets */,
 				94ED290329A750D000111C8F /* LaunchScreen.storyboard */,
+				94ED290129A750D000111C8F /* Assets.xcassets */,
 				94ED290629A750D000111C8F /* Info.plist */,
 			);
 			path = VoiceRecorder;
+			sourceTree = "<group>";
+		};
+		94ED290C29A750E600111C8F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		94ED290D29A750FF00111C8F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9470759229A75DB8000508B3 /* TabBarController.swift */,
+				9470759429A75F4F000508B3 /* HomeViewController.swift */,
+				9470759629A75F81000508B3 /* SearchViewController.swift */,
+				9470759829A75FDA000508B3 /* RecordViewController.swift */,
+				9470759C29A762BB000508B3 /* HistoryViewController.swift */,
+				9470759A29A76142000508B3 /* SettingsViewController.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		94ED290E29A7510600111C8F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +123,10 @@
 			dependencies = (
 			);
 			name = VoiceRecorder;
+			packageProductDependencies = (
+				94ED291029A751A900111C8F /* Realm */,
+				94ED291229A751A900111C8F /* RealmSwift */,
+			);
 			productName = VoiceRecorder;
 			productReference = 94ED28F529A750D000111C8F /* VoiceRecorder.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +155,9 @@
 				Base,
 			);
 			mainGroup = 94ED28EC29A750CF00111C8F;
+			packageReferences = (
+				94ED290F29A751A900111C8F /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = 94ED28F629A750D000111C8F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,7 +174,6 @@
 			files = (
 				94ED290529A750D000111C8F /* LaunchScreen.storyboard in Resources */,
 				94ED290229A750D000111C8F /* Assets.xcassets in Resources */,
-				94ED290029A750D000111C8F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +184,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94ED28FD29A750D000111C8F /* ViewController.swift in Sources */,
+				9470759729A75F81000508B3 /* SearchViewController.swift in Sources */,
+				9470759329A75DB8000508B3 /* TabBarController.swift in Sources */,
+				9470759B29A76142000508B3 /* SettingsViewController.swift in Sources */,
 				94ED28F929A750D000111C8F /* AppDelegate.swift in Sources */,
+				9470759929A75FDA000508B3 /* RecordViewController.swift in Sources */,
 				94ED28FB29A750D000111C8F /* SceneDelegate.swift in Sources */,
+				9470759529A75F4F000508B3 /* HomeViewController.swift in Sources */,
+				9470759D29A762BB000508B3 /* HistoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		94ED28FE29A750D000111C8F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				94ED28FF29A750D000111C8F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		94ED290329A750D000111C8F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,9 +335,8 @@
 				INFOPLIST_FILE = VoiceRecorder/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,9 +362,8 @@
 				INFOPLIST_FILE = VoiceRecorder/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -358,6 +399,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		94ED290F29A751A900111C8F /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		94ED291029A751A900111C8F /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94ED290F29A751A900111C8F /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		94ED291229A751A900111C8F /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94ED290F29A751A900111C8F /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 94ED28ED29A750CF00111C8F /* Project object */;
 }
