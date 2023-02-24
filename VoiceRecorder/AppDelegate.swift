@@ -14,6 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         return true
     }
+    
+    // MARK: Application-specified objects
+    
+    public let storageModel = StorageModel()
 
     // MARK: UISceneSession Lifecycle
 

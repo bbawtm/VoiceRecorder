@@ -16,6 +16,10 @@
 		9470759F29A77994000508B3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9470759E29A77994000508B3 /* HomeView.swift */; };
 		947075A129A77C45000508B3 /* CommonLabelSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947075A029A77C45000508B3 /* CommonLabelSettings.swift */; };
 		947075A329A8CA7C000508B3 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947075A229A8CA7C000508B3 /* RecordView.swift */; };
+		947075A529A8E7F8000508B3 /* StorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947075A429A8E7F8000508B3 /* StorageModel.swift */; };
+		947075A729A8EC4A000508B3 /* AppropriateAudioFormatsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947075A629A8EC4A000508B3 /* AppropriateAudioFormatsModel.swift */; };
+		947075A929A8F2F7000508B3 /* HistoryTableCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 947075A829A8F2F7000508B3 /* HistoryTableCellNib.xib */; };
+		947075AC29A8F64E000508B3 /* HistoryTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947075AB29A8F64E000508B3 /* HistoryTableCellView.swift */; };
 		94ED28F929A750D000111C8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ED28F829A750D000111C8F /* AppDelegate.swift */; };
 		94ED28FB29A750D000111C8F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ED28FA29A750D000111C8F /* SceneDelegate.swift */; };
 		94ED290229A750D000111C8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94ED290129A750D000111C8F /* Assets.xcassets */; };
@@ -34,6 +38,10 @@
 		9470759E29A77994000508B3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		947075A029A77C45000508B3 /* CommonLabelSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonLabelSettings.swift; sourceTree = "<group>"; };
 		947075A229A8CA7C000508B3 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
+		947075A429A8E7F8000508B3 /* StorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageModel.swift; sourceTree = "<group>"; };
+		947075A629A8EC4A000508B3 /* AppropriateAudioFormatsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppropriateAudioFormatsModel.swift; sourceTree = "<group>"; };
+		947075A829A8F2F7000508B3 /* HistoryTableCellNib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableCellNib.xib; sourceTree = "<group>"; };
+		947075AB29A8F64E000508B3 /* HistoryTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableCellView.swift; sourceTree = "<group>"; };
 		94ED28F529A750D000111C8F /* VoiceRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94ED28F829A750D000111C8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94ED28FA29A750D000111C8F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +63,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		947075AA29A8F61F000508B3 /* HistoryTable */ = {
+			isa = PBXGroup;
+			children = (
+				947075A829A8F2F7000508B3 /* HistoryTableCellNib.xib */,
+				947075AB29A8F64E000508B3 /* HistoryTableCellView.swift */,
+			);
+			path = HistoryTable;
+			sourceTree = "<group>";
+		};
 		94ED28EC29A750CF00111C8F = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +106,8 @@
 		94ED290C29A750E600111C8F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				947075A429A8E7F8000508B3 /* StorageModel.swift */,
+				947075A629A8EC4A000508B3 /* AppropriateAudioFormatsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -109,6 +128,7 @@
 		94ED290E29A7510600111C8F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				947075AA29A8F61F000508B3 /* HistoryTable */,
 				9470759E29A77994000508B3 /* HomeView.swift */,
 				947075A029A77C45000508B3 /* CommonLabelSettings.swift */,
 				947075A229A8CA7C000508B3 /* RecordView.swift */,
@@ -183,6 +203,7 @@
 			files = (
 				94ED290529A750D000111C8F /* LaunchScreen.storyboard in Resources */,
 				94ED290229A750D000111C8F /* Assets.xcassets in Resources */,
+				947075A929A8F2F7000508B3 /* HistoryTableCellNib.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,9 +217,12 @@
 				9470759F29A77994000508B3 /* HomeView.swift in Sources */,
 				9470759729A75F81000508B3 /* SearchViewController.swift in Sources */,
 				9470759329A75DB8000508B3 /* TabBarController.swift in Sources */,
+				947075A529A8E7F8000508B3 /* StorageModel.swift in Sources */,
 				947075A329A8CA7C000508B3 /* RecordView.swift in Sources */,
+				947075A729A8EC4A000508B3 /* AppropriateAudioFormatsModel.swift in Sources */,
 				9470759B29A76142000508B3 /* SettingsViewController.swift in Sources */,
 				94ED28F929A750D000111C8F /* AppDelegate.swift in Sources */,
+				947075AC29A8F64E000508B3 /* HistoryTableCellView.swift in Sources */,
 				9470759929A75FDA000508B3 /* RecordViewController.swift in Sources */,
 				94ED28FB29A750D000111C8F /* SceneDelegate.swift in Sources */,
 				9470759529A75F4F000508B3 /* HomeViewController.swift in Sources */,

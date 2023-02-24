@@ -165,7 +165,7 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPl
         view.waitingForAction()
     }
     
-    // MARK: - Error handling
+    // MARK: - Displaying alerts
     
     private func displayAlert(title: String, description: String, buttonTitle: String = "OK") {
         let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
