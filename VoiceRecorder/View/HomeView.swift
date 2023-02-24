@@ -17,6 +17,10 @@ class HomeView: UIView {
     private let swiperPadding: CGFloat = 20
     private let actionDeltaLag: CGFloat = 0.07
     
+    let swiperSizeValue: CGFloat = 64
+    let swiperImageSizeValue: CGFloat = 30
+    let swiperDelta: CGFloat = 4
+    
     private let startRecordingClosure: () -> Void
     
     // MARK: - Initializing
@@ -42,7 +46,7 @@ class HomeView: UIView {
             
             swipeToStartButton.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor, constant: swiperPadding),
             swipeToStartButton.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor, constant: -swiperPadding),
-            swipeToStartButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -18),
+            swipeToStartButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -25),
         ])
     }
     
@@ -75,13 +79,9 @@ class HomeView: UIView {
     }()
     
     private lazy var swipeToStartButton: UIButton = {
-        let swiperSizeValue: CGFloat = 64
-        let swiperImageSizeValue: CGFloat = 30
-        let swiperPadding: CGFloat = 4
-        
         let button = UIButton(type: .custom)
         button.backgroundColor = UIColor(named: "appDarkest")
-        button.layer.cornerRadius = (swiperSizeValue + 2 * swiperPadding) / 2
+        button.layer.cornerRadius = (swiperSizeValue + 2 * swiperDelta) / 2
         button.addTarget(self, action: #selector(startButtonStarted(_:event:)), for: .touchDragInside)
         button.addTarget(self, action: #selector(startButtonEnded(_:)), for: .touchUpInside)
         
@@ -110,9 +110,9 @@ class HomeView: UIView {
         NSLayoutConstraint.activate([
             swipableView.heightAnchor.constraint(equalToConstant: swiperSizeValue),
             swipableView.widthAnchor.constraint(equalToConstant: swiperSizeValue),
-            swipableView.topAnchor.constraint(equalTo: button.topAnchor, constant: swiperPadding),
-            swipableView.bottomAnchor.constraint(equalTo: button.bottomAnchor, constant: -swiperPadding),
-            swipableView.leftAnchor.constraint(lessThanOrEqualTo: button.leftAnchor, constant: swiperPadding),
+            swipableView.topAnchor.constraint(equalTo: button.topAnchor, constant: swiperDelta),
+            swipableView.bottomAnchor.constraint(equalTo: button.bottomAnchor, constant: -swiperDelta),
+            swipableView.leftAnchor.constraint(lessThanOrEqualTo: button.leftAnchor, constant: swiperDelta),
             
             label.centerXAnchor.constraint(equalTo: button.centerXAnchor),
             label.centerYAnchor.constraint(equalTo: button.centerYAnchor),
@@ -135,7 +135,7 @@ class HomeView: UIView {
     
     @objc private func startButtonEnded(_ sender : UIButton) {
         let swipableView = sender.viewWithTag(2924057)!
-        let centerPositionX = swipableView.frame.size.width / 2
+        let centerPositionX = swiperDelta + swiperSizeValue / 2
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 7, options: .curveEaseInOut, animations: {
             swipableView.center.x = centerPositionX
         }) { _ in}
