@@ -15,6 +15,7 @@
 		9470759D29A762BB000508B3 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9470759C29A762BB000508B3 /* HistoryViewController.swift */; };
 		9470759F29A77994000508B3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9470759E29A77994000508B3 /* HomeView.swift */; };
 		947075A129A77C45000508B3 /* CommonLabelSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947075A029A77C45000508B3 /* CommonLabelSettings.swift */; };
+		947075A329A8CA7C000508B3 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947075A229A8CA7C000508B3 /* RecordView.swift */; };
 		94ED28F929A750D000111C8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ED28F829A750D000111C8F /* AppDelegate.swift */; };
 		94ED28FB29A750D000111C8F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ED28FA29A750D000111C8F /* SceneDelegate.swift */; };
 		94ED290229A750D000111C8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94ED290129A750D000111C8F /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 		9470759C29A762BB000508B3 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		9470759E29A77994000508B3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		947075A029A77C45000508B3 /* CommonLabelSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonLabelSettings.swift; sourceTree = "<group>"; };
+		947075A229A8CA7C000508B3 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		94ED28F529A750D000111C8F /* VoiceRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94ED28F829A750D000111C8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94ED28FA29A750D000111C8F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			children = (
 				9470759E29A77994000508B3 /* HomeView.swift */,
 				947075A029A77C45000508B3 /* CommonLabelSettings.swift */,
+				947075A229A8CA7C000508B3 /* RecordView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				9470759F29A77994000508B3 /* HomeView.swift in Sources */,
 				9470759729A75F81000508B3 /* SearchViewController.swift in Sources */,
 				9470759329A75DB8000508B3 /* TabBarController.swift in Sources */,
+				947075A329A8CA7C000508B3 /* RecordView.swift in Sources */,
 				9470759B29A76142000508B3 /* SettingsViewController.swift in Sources */,
 				94ED28F929A750D000111C8F /* AppDelegate.swift in Sources */,
 				9470759929A75FDA000508B3 /* RecordViewController.swift in Sources */,
