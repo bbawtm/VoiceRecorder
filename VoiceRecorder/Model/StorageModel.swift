@@ -36,18 +36,26 @@ class StorageModel {
         } catch {
             fatalError(error.localizedDescription)
         }
+        
+        let resourceKeys: [URLResourceKey] = [.fileSizeKey, .creationDateKey]
+        
         for fileURL in allFiles {
             if fileURL.isFileURL && AppropriateAudioFormatsModel.allExtensions.contains(fileURL.pathExtension) {
                 let audioFile: AudioFile
                 do {
-                    let attridutes = try FileManager.default.attributesOfItem(atPath: fileURL.path())
-                    let size = ByteCountFormatter.string(fromByteCount: (attridutes[.size] as? Int64) ?? Int64(), countStyle: .file)
-                    let time = timeFromDate((attridutes[.creationDate] as? Date) ?? Date.distantPast)
+                    let resourceValues = try fileURL.resourceValues(forKeys: Set(resourceKeys))
+                    let byteCount = resourceValues.fileSize ?? 0
+                    let creationDate = resourceValues.creationDate
+                    let size = ByteCountFormatter.string(fromByteCount: Int64(byteCount), countStyle: .file)
+                    let time = timeFromDate(creationDate ?? Date.distantPast)
                     audioFile = AudioFile(url: fileURL, title: fileURL.lastPathComponent, size: size, time: time)
                 } catch {
+                    print("StorageModel: exception \(error.localizedDescription)")
                     continue
                 }
                 self.allAudio.append(audioFile)
+            } else {
+                print("StorageModel: unable to verify \(fileURL)")
             }
         }
     }

@@ -29,11 +29,15 @@ class AppropriateAudioFormatsModel {
         .init(description: "Apple Lossless", format: kAudioFormatAppleLossless, fileExtensions: ["m4a", "caf"]),
         .init(description: "Apple IMA4", format: kAudioFormatAppleIMA4, fileExtensions: ["aif", "aiff", "aifc", "caf"]),
         .init(description: "iLBC", format: kAudioFormatiLBC, fileExtensions: ["ilbc"]),
-        .init(description: "ULaw", format: kAudioFormatULaw, fileExtensions: ["aif", "aiff", "aifc", "caf", "snd", "au", "wav"])
+        .init(description: "ULaw", format: kAudioFormatULaw, fileExtensions: ["wav", "aif", "aiff", "aifc", "caf", "snd", "au"])
     ]
     
     public static let allExtensions: [String] = {
         formats.flatMap { $0.fileExtensions }
     }()
+    
+    public static func getFirstExtension(byKey key: AudioFormatID) -> String? {
+        formats.first { $0.format == key }?.fileExtensions.first
+    }
     
 }

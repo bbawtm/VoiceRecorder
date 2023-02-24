@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: Application-specified objects
     
     public let storageModel = StorageModel()
+    public let recEngineModel = RecEngineModel()
 
     // MARK: UISceneSession Lifecycle
 

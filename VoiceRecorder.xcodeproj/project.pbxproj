@@ -26,6 +26,7 @@
 		94ED290529A750D000111C8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94ED290329A750D000111C8F /* LaunchScreen.storyboard */; };
 		94ED291129A751A900111C8F /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 94ED291029A751A900111C8F /* Realm */; };
 		94ED291329A751A900111C8F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 94ED291229A751A900111C8F /* RealmSwift */; };
+		94F8975329A93D9A00855A67 /* RecEngineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F8975229A93D9A00855A67 /* RecEngineModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		94ED290129A750D000111C8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94ED290429A750D000111C8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94ED290629A750D000111C8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94F8975229A93D9A00855A67 /* RecEngineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecEngineModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 			children = (
 				947075A429A8E7F8000508B3 /* StorageModel.swift */,
 				947075A629A8EC4A000508B3 /* AppropriateAudioFormatsModel.swift */,
+				94F8975229A93D9A00855A67 /* RecEngineModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				9470759B29A76142000508B3 /* SettingsViewController.swift in Sources */,
 				94ED28F929A750D000111C8F /* AppDelegate.swift in Sources */,
 				947075AC29A8F64E000508B3 /* HistoryTableCellView.swift in Sources */,
+				94F8975329A93D9A00855A67 /* RecEngineModel.swift in Sources */,
 				9470759929A75FDA000508B3 /* RecordViewController.swift in Sources */,
 				94ED28FB29A750D000111C8F /* SceneDelegate.swift in Sources */,
 				9470759529A75F4F000508B3 /* HomeViewController.swift in Sources */,
