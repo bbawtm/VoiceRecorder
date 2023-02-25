@@ -84,6 +84,7 @@ class StorageModel {
                 print("StorageModel: unable to verify \(fileURL)")
             }
         }
+        self.allAudio.sort { $0.date < $1.date }
     }
     
     private func timeFromDate(_ date: Date) -> String {

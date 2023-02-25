@@ -6,16 +6,21 @@
 //
 
 import UIKit
+import AVFoundation
 
 
-class HistoryViewController: UITableViewController {
+class HistoryViewController: UITableViewController, PlayerDelegate, AVAudioPlayerDelegate {
     
     private let storageModel = (UIApplication.shared.delegate as! AppDelegate).storageModel
+    private let recEngineModel = (UIApplication.shared.delegate as! AppDelegate).recEngineModel
+    
+    private var currentPlayingCell: HistoryTableCellView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = UIColor(named: "appDark")
         tableView.register(UINib(nibName: "HistoryTableCellNib", bundle: .main), forCellReuseIdentifier: "HistoryTableCell")
+        recEngineModel.setupPlayerDelegate(self)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -62,8 +67,33 @@ class HistoryViewController: UITableViewController {
         }
         let currentIndex = indexes[indexPath.row]
         let model = storageModel.allAudio[currentIndex]
-        cell.configure(forAudioFile: model)
+        cell.configure(forAudioFile: model) {
+            self.currentPlayingCell = cell
+            self.recEngineModel.startPlaying(file: model.url)
+        } withStopActionClosure: {
+            self.recEngineModel.stopPlaying()
+        }
         return cell
+    }
+    
+    // MARK: - AV Player Delegate
+    
+    internal func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        recEngineModel.stopPlaying()
+        currentPlayingCell?.hasSelectedButton(false)
+        currentPlayingCell = nil
+    }
+    
+    
+    // MARK: - Player Delegate
+    
+    func playerDidStart() {
+        currentPlayingCell?.hasSelectedButton(true)
+    }
+    
+    func playerDidEnd() {
+        currentPlayingCell?.hasSelectedButton(false)
+        currentPlayingCell = nil
     }
     
 }

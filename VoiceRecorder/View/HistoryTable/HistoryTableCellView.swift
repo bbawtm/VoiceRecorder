@@ -10,12 +10,22 @@ import UIKit
 
 class HistoryTableCellView: UITableViewCell {
     
+    private var playPlayingClosure: (() -> Void)?
+    private var stopPlayingClosure: (() -> Void)?
+    
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var size: UILabel!
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var playButton: UIButton!
     
-    public func configure(forAudioFile file: StorageModel.AudioFile) {
+    public func configure(
+        forAudioFile file: StorageModel.AudioFile,
+        withPlayActionClosure playPlayingClosure: @escaping () -> Void,
+        withStopActionClosure stopPlayingClosure: @escaping () -> Void
+    ) {
+        self.playPlayingClosure = playPlayingClosure
+        self.stopPlayingClosure = stopPlayingClosure
+        
         backgroundColor = UIColor(named: "appDarkGray")
         selectionStyle = .none
         
@@ -39,7 +49,15 @@ class HistoryTableCellView: UITableViewCell {
     }
     
     @objc private func buttonWasPressed() {
-        playButton.isSelected.toggle()
+        if playButton.isSelected {
+            stopPlayingClosure?()
+        } else {
+            playPlayingClosure?()
+        }
+    }
+    
+    public func hasSelectedButton(_ val: Bool) {
+        playButton.isSelected = val
     }
     
 }

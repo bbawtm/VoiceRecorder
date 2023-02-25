@@ -62,7 +62,7 @@ class RecEngineModel {
     
     private func displayAlert(title: String, description: String, buttonTitle: String = "OK") {
         let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: title, style: .cancel))
+        alert.addAction(UIAlertAction(title: buttonTitle, style: .cancel))
         
         let scene = UIApplication.shared.connectedScenes.first
         if let sceneDelegate = (scene?.delegate as? SceneDelegate) {
@@ -110,7 +110,7 @@ class RecEngineModel {
         }
     }
     
-    @objc public func startRecording() {
+    public func startRecording() {
         if isRecording {
             finishAudioRecording(success: true)
             recorderDelegate?.recordingDidEnd()
@@ -127,7 +127,7 @@ class RecEngineModel {
         }
     }
     
-    @objc private func updateAudioMeter(timer: Timer) {
+    private func updateAudioMeter(timer: Timer) {
         guard audioRecorder.isRecording else { return }
         
         let hr = Int((audioRecorder.currentTime / 60) / 60)
@@ -162,12 +162,11 @@ class RecEngineModel {
         }
     }
 
-    @objc public func startPlaying(file fileURL: URL) {
+    public func startPlaying(file fileURL: URL) {
         if isPlaying {
-            audioPlayer.stop()
-            playerDelegate?.playerDidEnd()
-            isPlaying = false
-        } else if FileManager.default.fileExists(atPath: fileURL.path) {
+            stopPlaying()
+        }
+        if FileManager.default.fileExists(atPath: fileURL.path) {
             playerDelegate?.playerDidStart()
             preparePlay(file: fileURL)
             audioPlayer.play()
@@ -175,6 +174,12 @@ class RecEngineModel {
         } else {
             displayAlert(title: "Ошибка", description: "Аудио файл не найден.")
         }
+    }
+    
+    public func stopPlaying() {
+        audioPlayer.stop()
+        playerDelegate?.playerDidEnd()
+        isPlaying = false
     }
     
 }

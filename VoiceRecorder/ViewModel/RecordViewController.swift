@@ -52,11 +52,5 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate, RecorderD
         guard let view = self.view as? RecordView else { fatalError("Unknown view type") }
         view.setCurrentTiming(timing)
     }
-
-//    internal func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-//        guard let view = self.view as? RecordView else { fatalError("Unknown view type") }
-//
-//        view.waitingForAction()
-//    }
     
 }
