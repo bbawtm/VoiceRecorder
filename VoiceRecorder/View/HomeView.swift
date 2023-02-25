@@ -31,11 +31,17 @@ class HomeView: UIView {
         
         backgroundColor = UIColor(named: "appDark")
         
+        addSubview(topColoredPanel)
         addSubview(titleLabel)
         addSubview(subtitleLabel)
         addSubview(swipeToStartButton)
         
         NSLayoutConstraint.activate([
+            topColoredPanel.topAnchor.constraint(equalTo: self.topAnchor),
+            topColoredPanel.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor),
+            topColoredPanel.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor),
+            topColoredPanel.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: -70),
+            
             titleLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: textPadding),
             titleLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -textPadding),
             titleLabel.bottomAnchor.constraint(equalTo: subtitleLabel.topAnchor, constant: -18),
@@ -126,6 +132,43 @@ class HomeView: UIView {
         return button
     }()
     
+    private let topColoredPanel: UIView = {
+        let blueColor = UIColor(named: "appBlue") ?? .systemCyan
+        let logoColor = UIColor(named: "appDarkGray") ?? .systemGray
+        
+        let view = UIView()
+        view.backgroundColor = blueColor
+        view.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        view.layer.cornerRadius = 30
+        
+        let backgroundImageView = UIImageView(image: UIImage(named: "homePageWaves"))
+        backgroundImageView.alpha = 0.1
+        let logoImageView = UIImageView(image: UIImage(named: "AppIcon")?.withTintColor(logoColor, renderingMode: .alwaysOriginal))
+        logoImageView.backgroundColor = blueColor
+        logoImageView.layer.cornerRadius = 50
+        
+        view.addSubview(backgroundImageView)
+        view.addSubview(logoImageView)
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            backgroundImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            backgroundImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 20),
+            backgroundImageView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            backgroundImageView.heightAnchor.constraint(equalToConstant: 200),
+            
+            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            logoImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 20),
+            logoImageView.heightAnchor.constraint(lessThanOrEqualToConstant: 100),
+            logoImageView.widthAnchor.constraint(equalToConstant: 100),
+        ])
+        
+        return view
+    }()
+    
     // MARK: - Swipe button functions
     
     @objc private func startButtonStarted(_ sender : UIButton, event: UIEvent) {
@@ -150,8 +193,8 @@ class HomeView: UIView {
         
         let previousLocation = touch.previousLocation(in: superView)
         let location = touch.location(in: superView)
-        let delta_x = location.x - previousLocation.x
-        var centerPosition = CGPoint.init(x: subView.center.x + delta_x, y: subView.center.y)
+        let deltaX = location.x - previousLocation.x
+        var centerPosition = CGPoint.init(x: subView.center.x + deltaX, y: subView.center.y)
         let minX = subView.frame.size.width / 2
         let maxX = superView.frame.size.width - subView.frame.size.width / 2
         

@@ -11,6 +11,8 @@ import AVFoundation
 
 class RecordViewController: UIViewController, AVAudioRecorderDelegate, RecorderDelegate {
     
+    // MARK: Initializing
+    
     private let recEngineModel = (UIApplication.shared.delegate as! AppDelegate).recEngineModel
     
     override func viewDidLoad() {
@@ -18,6 +20,8 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate, RecorderD
         self.view = RecordView(startRecordingSelector: #selector(startRecordingFuncCoverage))
         recEngineModel.setupRecorderDelegate(self)
     }
+    
+    // MARK: - AV Recorder Delegate
     
     internal func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         guard let view = self.view as? RecordView else { fatalError("Unknown view type") }
