@@ -122,13 +122,6 @@ class RecEngineModel {
             meterTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { timer in
                 self.updateAudioMeter(timer: timer)
             })
-//            meterTimer = Timer.scheduledTimer(
-//                timeInterval: 0.1,
-//                target:self,
-//                selector: #selector(updateAudioMeter(timer:)),
-//                userInfo:nil,
-//                repeats:true
-//            )
             recorderDelegate?.recordingDidStart()
             isRecording = true
         }

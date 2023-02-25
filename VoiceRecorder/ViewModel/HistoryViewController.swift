@@ -19,15 +19,27 @@ class HistoryViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        1
+        storageModel.dateOrder.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        storageModel.allAudio.count
+        guard 0 <= section && section < storageModel.dateOrder.count else {
+            print("numberOfRowsInSection: Section index error")
+            return 0
+        }
+        let sectionName = storageModel.dateOrder[section]
+        guard let indexes = storageModel.dateMap[sectionName] else {
+            print("numberOfRowsInSection: Cannot get indexes array")
+            return 0
+        }
+        return indexes.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        "Audio"
+        if 0 <= section && section < storageModel.dateOrder.count {
+            return storageModel.dateOrder[section]
+        }
+        return ""
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -35,7 +47,22 @@ class HistoryViewController: UITableViewController {
             print("Unknown cell type")
             return UITableViewCell()
         }
-        cell.configure(forAudioFile: self.storageModel.allAudio[indexPath.item])
+        guard 0 <= indexPath.section && indexPath.section < storageModel.dateOrder.count else {
+            print("IndexPath.section index error")
+            return UITableViewCell()
+        }
+        let sectionName = storageModel.dateOrder[indexPath.section]
+        guard let indexes = storageModel.dateMap[sectionName] else {
+            print("Cannot get indexes array")
+            return UITableViewCell()
+        }
+        guard 0 <= indexPath.row && indexPath.row < indexes.count else {
+            print("IndexPath.row index error")
+            return UITableViewCell()
+        }
+        let currentIndex = indexes[indexPath.row]
+        let model = storageModel.allAudio[currentIndex]
+        cell.configure(forAudioFile: model)
         return cell
     }
     
