@@ -143,7 +143,7 @@ class HomeView: UIView {
         
         let backgroundImageView = UIImageView(image: UIImage(named: "homePageWaves"))
         backgroundImageView.alpha = 0.1
-        let logoImageView = UIImageView(image: UIImage(named: "AppIcon")?.withTintColor(logoColor, renderingMode: .alwaysOriginal))
+        let logoImageView = UIImageView(image: UIImage(named: "appLogo")?.withTintColor(logoColor, renderingMode: .alwaysOriginal))
         logoImageView.backgroundColor = blueColor
         logoImageView.layer.cornerRadius = 50
         
