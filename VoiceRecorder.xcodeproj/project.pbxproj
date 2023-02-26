@@ -20,6 +20,11 @@
 		947075A729A8EC4A000508B3 /* AppropriateAudioFormatsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947075A629A8EC4A000508B3 /* AppropriateAudioFormatsModel.swift */; };
 		947075A929A8F2F7000508B3 /* HistoryTableCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 947075A829A8F2F7000508B3 /* HistoryTableCellNib.xib */; };
 		947075AC29A8F64E000508B3 /* HistoryTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947075AB29A8F64E000508B3 /* HistoryTableCellView.swift */; };
+		9478069829AB618800CB8A64 /* SettingsLinkTableCellNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9478069729AB618800CB8A64 /* SettingsLinkTableCellNib.swift */; };
+		9478069C29AB630800CB8A64 /* SettingsLinkTableCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9478069B29AB630800CB8A64 /* SettingsLinkTableCellNib.xib */; };
+		9478069E29AB631300CB8A64 /* SettingsToggleTableCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9478069D29AB631300CB8A64 /* SettingsToggleTableCellNib.xib */; };
+		947806A029AB633600CB8A64 /* SettingsToggleTableCellNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9478069F29AB633600CB8A64 /* SettingsToggleTableCellNib.swift */; };
+		947806A229AB676300CB8A64 /* TODO List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947806A129AB676300CB8A64 /* TODO List.swift */; };
 		94ED28F929A750D000111C8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ED28F829A750D000111C8F /* AppDelegate.swift */; };
 		94ED28FB29A750D000111C8F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ED28FA29A750D000111C8F /* SceneDelegate.swift */; };
 		94ED290229A750D000111C8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94ED290129A750D000111C8F /* Assets.xcassets */; };
@@ -43,6 +48,11 @@
 		947075A629A8EC4A000508B3 /* AppropriateAudioFormatsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppropriateAudioFormatsModel.swift; sourceTree = "<group>"; };
 		947075A829A8F2F7000508B3 /* HistoryTableCellNib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableCellNib.xib; sourceTree = "<group>"; };
 		947075AB29A8F64E000508B3 /* HistoryTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableCellView.swift; sourceTree = "<group>"; };
+		9478069729AB618800CB8A64 /* SettingsLinkTableCellNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLinkTableCellNib.swift; sourceTree = "<group>"; };
+		9478069B29AB630800CB8A64 /* SettingsLinkTableCellNib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsLinkTableCellNib.xib; sourceTree = "<group>"; };
+		9478069D29AB631300CB8A64 /* SettingsToggleTableCellNib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsToggleTableCellNib.xib; sourceTree = "<group>"; };
+		9478069F29AB633600CB8A64 /* SettingsToggleTableCellNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsToggleTableCellNib.swift; sourceTree = "<group>"; };
+		947806A129AB676300CB8A64 /* TODO List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TODO List.swift"; sourceTree = "<group>"; };
 		94ED28F529A750D000111C8F /* VoiceRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94ED28F829A750D000111C8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94ED28FA29A750D000111C8F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,13 +75,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		947075AA29A8F61F000508B3 /* HistoryTable */ = {
+		947075AA29A8F61F000508B3 /* HistoryTableCells */ = {
 			isa = PBXGroup;
 			children = (
 				947075A829A8F2F7000508B3 /* HistoryTableCellNib.xib */,
 				947075AB29A8F64E000508B3 /* HistoryTableCellView.swift */,
 			);
-			path = HistoryTable;
+			path = HistoryTableCells;
+			sourceTree = "<group>";
+		};
+		9478069629AB616B00CB8A64 /* SettingsTableCells */ = {
+			isa = PBXGroup;
+			children = (
+				9478069A29AB62E900CB8A64 /* Nibs */,
+				9478069729AB618800CB8A64 /* SettingsLinkTableCellNib.swift */,
+				9478069F29AB633600CB8A64 /* SettingsToggleTableCellNib.swift */,
+			);
+			path = SettingsTableCells;
+			sourceTree = "<group>";
+		};
+		9478069929AB61C500CB8A64 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9470759A29A76142000508B3 /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		9478069A29AB62E900CB8A64 /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				9478069B29AB630800CB8A64 /* SettingsLinkTableCellNib.xib */,
+				9478069D29AB631300CB8A64 /* SettingsToggleTableCellNib.xib */,
+			);
+			path = Nibs;
 			sourceTree = "<group>";
 		};
 		94ED28EC29A750CF00111C8F = {
@@ -101,6 +138,7 @@
 				94ED290329A750D000111C8F /* LaunchScreen.storyboard */,
 				94ED290129A750D000111C8F /* Assets.xcassets */,
 				94ED290629A750D000111C8F /* Info.plist */,
+				947806A129AB676300CB8A64 /* TODO List.swift */,
 			);
 			path = VoiceRecorder;
 			sourceTree = "<group>";
@@ -118,12 +156,12 @@
 		94ED290D29A750FF00111C8F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9478069929AB61C500CB8A64 /* Settings */,
 				9470759229A75DB8000508B3 /* TabBarController.swift */,
 				9470759429A75F4F000508B3 /* HomeViewController.swift */,
 				9470759629A75F81000508B3 /* SearchViewController.swift */,
 				9470759829A75FDA000508B3 /* RecordViewController.swift */,
 				9470759C29A762BB000508B3 /* HistoryViewController.swift */,
-				9470759A29A76142000508B3 /* SettingsViewController.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -131,7 +169,8 @@
 		94ED290E29A7510600111C8F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				947075AA29A8F61F000508B3 /* HistoryTable */,
+				9478069629AB616B00CB8A64 /* SettingsTableCells */,
+				947075AA29A8F61F000508B3 /* HistoryTableCells */,
 				9470759E29A77994000508B3 /* HomeView.swift */,
 				947075A029A77C45000508B3 /* CommonLabelSettings.swift */,
 				947075A229A8CA7C000508B3 /* RecordView.swift */,
@@ -204,7 +243,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9478069E29AB631300CB8A64 /* SettingsToggleTableCellNib.xib in Resources */,
 				94ED290529A750D000111C8F /* LaunchScreen.storyboard in Resources */,
+				9478069C29AB630800CB8A64 /* SettingsLinkTableCellNib.xib in Resources */,
 				94ED290229A750D000111C8F /* Assets.xcassets in Resources */,
 				947075A929A8F2F7000508B3 /* HistoryTableCellNib.xib in Resources */,
 			);
@@ -223,6 +264,7 @@
 				947075A529A8E7F8000508B3 /* StorageModel.swift in Sources */,
 				947075A329A8CA7C000508B3 /* RecordView.swift in Sources */,
 				947075A729A8EC4A000508B3 /* AppropriateAudioFormatsModel.swift in Sources */,
+				9478069829AB618800CB8A64 /* SettingsLinkTableCellNib.swift in Sources */,
 				9470759B29A76142000508B3 /* SettingsViewController.swift in Sources */,
 				94ED28F929A750D000111C8F /* AppDelegate.swift in Sources */,
 				947075AC29A8F64E000508B3 /* HistoryTableCellView.swift in Sources */,
@@ -232,6 +274,8 @@
 				9470759529A75F4F000508B3 /* HomeViewController.swift in Sources */,
 				947075A129A77C45000508B3 /* CommonLabelSettings.swift in Sources */,
 				9470759D29A762BB000508B3 /* HistoryViewController.swift in Sources */,
+				947806A229AB676300CB8A64 /* TODO List.swift in Sources */,
+				947806A029AB633600CB8A64 /* SettingsToggleTableCellNib.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
