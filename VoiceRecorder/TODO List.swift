@@ -22,7 +22,6 @@
 // MARK: - History VC
 
 // TODO: slider on playing audio
-// TODO: red button if isSelected
 // TODO: tabbar zero top space
 
 

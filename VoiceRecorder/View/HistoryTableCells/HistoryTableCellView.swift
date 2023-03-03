@@ -26,6 +26,7 @@ class HistoryTableCellView: UITableViewCell {
         self.playPlayingClosure = playPlayingClosure
         self.stopPlayingClosure = stopPlayingClosure
         
+        let redColor = UIColor(named: "appRed") ?? .systemRed
         backgroundColor = UIColor(named: "appDarkGray")
         selectionStyle = .none
         
@@ -38,7 +39,8 @@ class HistoryTableCellView: UITableViewCell {
             for: .normal
         )
         playButton.setImage(
-            UIImage(systemName: "pause.fill", withConfiguration: UIImage.SymbolConfiguration(scale: .medium)),
+            UIImage(systemName: "pause.fill", withConfiguration: UIImage.SymbolConfiguration(scale: .medium))?
+                .withTintColor(redColor, renderingMode: .alwaysOriginal),
             for: .selected
         )
         playButton.addTarget(nil, action: #selector(buttonWasPressed), for: .touchUpInside)
