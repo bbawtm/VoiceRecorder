@@ -26,8 +26,15 @@ class RecordView: UIView {
         addSubview(recordButton)
         
         NSLayoutConstraint.activate([
-            recordingTimeLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            recordButton.topAnchor.constraint(equalTo: recordingTimeLabel.bottomAnchor),
+            recordingTimeLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
+            recordingTimeLabel.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor, constant: 16),
+            recordingTimeLabel.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor, constant: -16),
+            recordingTimeLabel.heightAnchor.constraint(equalToConstant: 70),
+            
+            recordButton.topAnchor.constraint(equalTo: recordingTimeLabel.bottomAnchor, constant: 30),
+            recordButton.heightAnchor.constraint(equalToConstant: 64),
+            recordButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            recordButton.widthAnchor.constraint(equalToConstant: 300),
         ])
     }
     
@@ -43,16 +50,33 @@ class RecordView: UIView {
     
     private let recordingTimeLabel = {
         let label = UILabel()
-        label.text = "0.0"
+        label.text = "00h 00m 00s"
+        label.backgroundColor = UIColor(named: "appBlue") ?? .systemCyan
+        label.textColor = UIColor(named: "appDarkGray") ?? .systemGray
+        label.textAlignment = .center
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = 15
+        label.font = UIFont.systemFont(ofSize: 35, weight: .medium)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private lazy var recordButton = {
         let button = UIButton(type: .infoDark)
-        button.setTitle("Record", for: .normal)
-        button.setTitle("Stop recording", for: .selected)
+        let redColor = UIColor(named: "appRed") ?? .systemRed
+        button.setImage(
+            UIImage(systemName: "record.circle.fill")?.withTintColor(redColor, renderingMode: .alwaysOriginal),
+            for: .normal
+        )
+        button.setImage(
+            UIImage(systemName: "stop.fill")?.withTintColor(redColor, renderingMode: .alwaysOriginal),
+            for: .selected
+        )
         button.addTarget(nil, action: startRecordingSelector, for: .touchUpInside)
+        button.layer.borderWidth = 4
+        button.layer.borderColor = UIColor(named: "appDarkest")?.cgColor ?? UIColor.systemGray2.cgColor
+        button.layer.cornerRadius = 32
+        button.backgroundColor = UIColor(named: "appDark")?.withAlphaComponent(0.2) ?? .systemGray2
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()

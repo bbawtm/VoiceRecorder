@@ -47,7 +47,12 @@ class StorageModel {
         if let dateOrderContents {
             return dateOrderContents
         }
-        dateOrderContents = dateMap.keys.sorted().reversed()
+        var dates: [String: Date] = [:]
+        for el in allAudio {
+            let str = dayFromDate(el.date)
+            dates[str] = dates[str, default: el.date]
+        }
+        dateOrderContents = dates.keys.sorted { dates[$0]! > dates[$1]! }
         return dateOrderContents ?? []
     }
     
@@ -55,6 +60,7 @@ class StorageModel {
         self.allAudio = []
         
         let documentsDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        print("Document directory: \(documentsDir.absoluteString)")
         let allFiles: [URL]
         do {
             allFiles = try FileManager.default.contentsOfDirectory(at: documentsDir, includingPropertiesForKeys: nil)
