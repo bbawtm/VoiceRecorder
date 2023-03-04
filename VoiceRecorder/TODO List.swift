@@ -16,7 +16,7 @@
 
 // MARK: - Record VC
 
-// TODO: this
+// TODO: amplifier
 
 
 // MARK: - History VC

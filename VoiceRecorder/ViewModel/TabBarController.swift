@@ -39,7 +39,9 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         let vc = SearchViewController()
         let (ordinary, selected) = configureTabBarImages(systemName: "magnifyingglass")
         vc.tabBarItem = UITabBarItem(title: nil, image: ordinary, selectedImage: selected)
-        return vc
+        
+        let navVC = UINavigationController(rootViewController: vc)
+        return navVC
     }()
     
     private let recordVC: UIViewController = {
