@@ -23,6 +23,7 @@ class HistoryViewController: UITableViewController, PlayerDelegate, AVAudioPlaye
         tableView.register(UINib(nibName: "EachTableCellNib", bundle: .main), forCellReuseIdentifier: "HistoryTableCell")
         
         self.view.addSubview(nothingToShowLabel)
+        nothingToShowLabel.isHidden = !storageModel.allAudio.isEmpty
         
         NSLayoutConstraint.activate([
             nothingToShowLabel.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor),
@@ -39,7 +40,6 @@ class HistoryViewController: UITableViewController, PlayerDelegate, AVAudioPlaye
         let label = UILabel()
         label.text = "Nothing to show"
         label.textColor = UIColor(named: "appGray") ?? UIColor.systemGray2
-        label.isHidden = false
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

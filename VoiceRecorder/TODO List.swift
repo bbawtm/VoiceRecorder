@@ -11,8 +11,6 @@
 
 // MARK: - Search VC
 
-// TODO: this
-
 
 // MARK: - Record VC
 
@@ -29,3 +27,7 @@
 
 // TODO: this
 
+
+// MARK: - Each Table Cell
+
+// TODO: separated screen

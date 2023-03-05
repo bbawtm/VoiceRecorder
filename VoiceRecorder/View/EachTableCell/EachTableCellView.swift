@@ -51,7 +51,6 @@ class EachTableCellView: UITableViewCell {
     }
     
     @objc private func buttonWasPressed() {
-        print("pressed")
         if playButton.isSelected {
             stopPlayingClosure?()
         } else {
