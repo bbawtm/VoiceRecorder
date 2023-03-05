@@ -55,7 +55,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         let vc = HistoryViewController()
         let (ordinary, selected) = configureTabBarImages(systemName: "clock.arrow.circlepath")
         vc.tabBarItem = UITabBarItem(title: nil, image: ordinary, selectedImage: selected)
-        return vc
+        return UINavigationController(rootViewController: vc)
     }()
     
     private let settingsVC: UIViewController = {

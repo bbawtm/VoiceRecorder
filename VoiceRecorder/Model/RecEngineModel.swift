@@ -47,10 +47,16 @@ class RecEngineModel {
     }
     
     public func setupRecorderDelegate(_ delegate: any RecorderVCD) {
+        if recorderDelegate != nil {
+            fatalError("There may be just one recorder")
+        }
         recorderDelegate = delegate
     }
     
     public func setupPlayerDelegate(_ delegate: any PlayerVCD) {
+        if isPlaying {
+            stopPlaying()
+        }
         playerDelegate = delegate
     }
 
@@ -164,7 +170,7 @@ class RecEngineModel {
 
     public func startPlaying(file fileURL: URL) {
         if isPlaying {
-            stopPlaying()
+            fatalError("Some player is running")
         }
         if FileManager.default.fileExists(atPath: fileURL.path) {
             playerDelegate?.playerDidStart()

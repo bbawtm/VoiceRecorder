@@ -18,8 +18,8 @@
 		947075A329A8CA7C000508B3 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947075A229A8CA7C000508B3 /* RecordView.swift */; };
 		947075A529A8E7F8000508B3 /* StorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947075A429A8E7F8000508B3 /* StorageModel.swift */; };
 		947075A729A8EC4A000508B3 /* AppropriateAudioFormatsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947075A629A8EC4A000508B3 /* AppropriateAudioFormatsModel.swift */; };
-		947075A929A8F2F7000508B3 /* HistoryTableCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 947075A829A8F2F7000508B3 /* HistoryTableCellNib.xib */; };
-		947075AC29A8F64E000508B3 /* HistoryTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947075AB29A8F64E000508B3 /* HistoryTableCellView.swift */; };
+		947075A929A8F2F7000508B3 /* EachTableCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 947075A829A8F2F7000508B3 /* EachTableCellNib.xib */; };
+		947075AC29A8F64E000508B3 /* EachTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947075AB29A8F64E000508B3 /* EachTableCellView.swift */; };
 		9478069829AB618800CB8A64 /* SettingsLinkTableCellNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9478069729AB618800CB8A64 /* SettingsLinkTableCellNib.swift */; };
 		9478069C29AB630800CB8A64 /* SettingsLinkTableCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9478069B29AB630800CB8A64 /* SettingsLinkTableCellNib.xib */; };
 		9478069E29AB631300CB8A64 /* SettingsToggleTableCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9478069D29AB631300CB8A64 /* SettingsToggleTableCellNib.xib */; };
@@ -46,8 +46,8 @@
 		947075A229A8CA7C000508B3 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		947075A429A8E7F8000508B3 /* StorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageModel.swift; sourceTree = "<group>"; };
 		947075A629A8EC4A000508B3 /* AppropriateAudioFormatsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppropriateAudioFormatsModel.swift; sourceTree = "<group>"; };
-		947075A829A8F2F7000508B3 /* HistoryTableCellNib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableCellNib.xib; sourceTree = "<group>"; };
-		947075AB29A8F64E000508B3 /* HistoryTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableCellView.swift; sourceTree = "<group>"; };
+		947075A829A8F2F7000508B3 /* EachTableCellNib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EachTableCellNib.xib; sourceTree = "<group>"; };
+		947075AB29A8F64E000508B3 /* EachTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachTableCellView.swift; sourceTree = "<group>"; };
 		9478069729AB618800CB8A64 /* SettingsLinkTableCellNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLinkTableCellNib.swift; sourceTree = "<group>"; };
 		9478069B29AB630800CB8A64 /* SettingsLinkTableCellNib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsLinkTableCellNib.xib; sourceTree = "<group>"; };
 		9478069D29AB631300CB8A64 /* SettingsToggleTableCellNib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsToggleTableCellNib.xib; sourceTree = "<group>"; };
@@ -75,13 +75,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		947075AA29A8F61F000508B3 /* HistoryTableCells */ = {
+		947075AA29A8F61F000508B3 /* EachTableCell */ = {
 			isa = PBXGroup;
 			children = (
-				947075A829A8F2F7000508B3 /* HistoryTableCellNib.xib */,
-				947075AB29A8F64E000508B3 /* HistoryTableCellView.swift */,
+				947075A829A8F2F7000508B3 /* EachTableCellNib.xib */,
+				947075AB29A8F64E000508B3 /* EachTableCellView.swift */,
 			);
-			path = HistoryTableCells;
+			path = EachTableCell;
 			sourceTree = "<group>";
 		};
 		9478069629AB616B00CB8A64 /* SettingsTableCells */ = {
@@ -170,7 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				9478069629AB616B00CB8A64 /* SettingsTableCells */,
-				947075AA29A8F61F000508B3 /* HistoryTableCells */,
+				947075AA29A8F61F000508B3 /* EachTableCell */,
 				9470759E29A77994000508B3 /* HomeView.swift */,
 				947075A029A77C45000508B3 /* CommonLabelSettings.swift */,
 				947075A229A8CA7C000508B3 /* RecordView.swift */,
@@ -247,7 +247,7 @@
 				94ED290529A750D000111C8F /* LaunchScreen.storyboard in Resources */,
 				9478069C29AB630800CB8A64 /* SettingsLinkTableCellNib.xib in Resources */,
 				94ED290229A750D000111C8F /* Assets.xcassets in Resources */,
-				947075A929A8F2F7000508B3 /* HistoryTableCellNib.xib in Resources */,
+				947075A929A8F2F7000508B3 /* EachTableCellNib.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,7 +267,7 @@
 				9478069829AB618800CB8A64 /* SettingsLinkTableCellNib.swift in Sources */,
 				9470759B29A76142000508B3 /* SettingsViewController.swift in Sources */,
 				94ED28F929A750D000111C8F /* AppDelegate.swift in Sources */,
-				947075AC29A8F64E000508B3 /* HistoryTableCellView.swift in Sources */,
+				947075AC29A8F64E000508B3 /* EachTableCellView.swift in Sources */,
 				94F8975329A93D9A00855A67 /* RecEngineModel.swift in Sources */,
 				9470759929A75FDA000508B3 /* RecordViewController.swift in Sources */,
 				94ED28FB29A750D000111C8F /* SceneDelegate.swift in Sources */,

@@ -10,6 +10,7 @@ import UIKit
 
 class StorageModel {
     
+    // Audio File type
     class AudioFile {
         let url: URL
         let date: Date
@@ -26,8 +27,10 @@ class StorageModel {
         }
     }
     
+    // All stored audio files
     public var allAudio: [AudioFile]
     
+    // Section title <-> [indices]
     private var dateMapContents: [String: [Int]]? = nil
     public var dateMap: [String: [Int]] {
         if let dateMapContents {
@@ -42,6 +45,7 @@ class StorageModel {
         return dateMapContents ?? [:]
     }
     
+    // Ordered section titles
     private var dateOrderContents: [String]? = nil
     public var dateOrder: [String] {
         if let dateOrderContents {
@@ -87,11 +91,17 @@ class StorageModel {
                 }
                 self.allAudio.append(audioFile)
             } else {
-                print("StorageModel: unable to verify \(fileURL)")
+                print("StorageModel: unable to verify \(fileURL) with path extension \(fileURL.pathExtension)")
             }
         }
         self.allAudio.sort { $0.date < $1.date }
     }
+    
+    public func search(withPhrase phrase: String) -> [AudioFile] {
+        self.allAudio.filter { $0.title.localizedCaseInsensitiveContains(phrase) }
+    }
+    
+    // MARK: - Private
     
     private func timeFromDate(_ date: Date) -> String {
         let formatter = DateFormatter()

@@ -14,14 +14,37 @@ class HistoryViewController: UITableViewController, PlayerDelegate, AVAudioPlaye
     private let storageModel = (UIApplication.shared.delegate as! AppDelegate).storageModel
     private let recEngineModel = (UIApplication.shared.delegate as! AppDelegate).recEngineModel
     
-    private var currentPlayingCell: HistoryTableCellView?
+    private var currentPlayingCell: EachTableCellView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.backgroundColor = UIColor(named: "appDark")
-        tableView.register(UINib(nibName: "HistoryTableCellNib", bundle: .main), forCellReuseIdentifier: "HistoryTableCell")
+        tableView.register(UINib(nibName: "EachTableCellNib", bundle: .main), forCellReuseIdentifier: "HistoryTableCell")
+        
+        self.view.addSubview(nothingToShowLabel)
+        
+        NSLayoutConstraint.activate([
+            nothingToShowLabel.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor),
+            nothingToShowLabel.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerYAnchor),
+        ])
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         recEngineModel.setupPlayerDelegate(self)
     }
+    
+    private let nothingToShowLabel = {
+        let label = UILabel()
+        label.text = "Nothing to show"
+        label.textColor = UIColor(named: "appGray") ?? UIColor.systemGray2
+        label.isHidden = false
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    // MARK: - Table Params
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         storageModel.dateOrder.count
@@ -48,7 +71,7 @@ class HistoryViewController: UITableViewController, PlayerDelegate, AVAudioPlaye
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryTableCell") as? HistoryTableCellView else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryTableCell") as? EachTableCellView else {
             print("Unknown cell type")
             return UITableViewCell()
         }
@@ -68,6 +91,9 @@ class HistoryViewController: UITableViewController, PlayerDelegate, AVAudioPlaye
         let currentIndex = indexes[indexPath.row]
         let model = storageModel.allAudio[currentIndex]
         cell.configure(forAudioFile: model) {
+            if self.currentPlayingCell != nil {
+                self.recEngineModel.stopPlaying()
+            }
             self.currentPlayingCell = cell
             self.recEngineModel.startPlaying(file: model.url)
         } withStopActionClosure: {
@@ -87,11 +113,11 @@ class HistoryViewController: UITableViewController, PlayerDelegate, AVAudioPlaye
     
     // MARK: - Player Delegate
     
-    func playerDidStart() {
+    internal func playerDidStart() {
         currentPlayingCell?.hasSelectedButton(true)
     }
     
-    func playerDidEnd() {
+    internal func playerDidEnd() {
         currentPlayingCell?.hasSelectedButton(false)
         currentPlayingCell = nil
     }

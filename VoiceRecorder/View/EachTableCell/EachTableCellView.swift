@@ -1,5 +1,5 @@
 //
-//  HistoryTableCellView.swift
+//  EachTableCellView.swift
 //  VoiceRecorder
 //
 //  Created by Vadim Popov on 24.02.2023.
@@ -8,7 +8,7 @@
 import UIKit
 
 
-class HistoryTableCellView: UITableViewCell {
+class EachTableCellView: UITableViewCell {
     
     private var playPlayingClosure: (() -> Void)?
     private var stopPlayingClosure: (() -> Void)?
@@ -51,6 +51,7 @@ class HistoryTableCellView: UITableViewCell {
     }
     
     @objc private func buttonWasPressed() {
+        print("pressed")
         if playButton.isSelected {
             stopPlayingClosure?()
         } else {
