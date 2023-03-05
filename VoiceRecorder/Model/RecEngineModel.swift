@@ -183,9 +183,11 @@ class RecEngineModel {
     }
     
     public func stopPlaying() {
-        audioPlayer.stop()
-        playerDelegate?.playerDidEnd()
-        isPlaying = false
+        if isPlaying {
+            audioPlayer.stop()
+            playerDelegate?.playerDidEnd()
+            isPlaying = false
+        }
     }
     
 }

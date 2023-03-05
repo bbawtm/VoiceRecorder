@@ -15,7 +15,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate, PlayerDe
     private let recEngineModel = (UIApplication.shared.delegate as! AppDelegate).recEngineModel
     
     private var currentManagingFiles: [StorageModel.AudioFile] = []
-    private var currentPlayingCell: EachTableCellView?
+    private weak var currentPlayingCell: EachTableCellView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,10 +24,11 @@ class SearchViewController: UITableViewController, UISearchBarDelegate, PlayerDe
         navigationItem.titleView = searchBar
         
         self.view.addSubview(nothingToShowLabel)
-        
-        self.currentManagingFiles = storageModel.search(withPhrase: "0")
-        
+        hideKeyboardWhenTappedAround()
+                
         tableView.backgroundColor = UIColor(named: "appDark")
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.register(UINib(nibName: "EachTableCellNib", bundle: .main), forCellReuseIdentifier: "SearchTableCell")
         
         NSLayoutConstraint.activate([
@@ -39,6 +40,12 @@ class SearchViewController: UITableViewController, UISearchBarDelegate, PlayerDe
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         recEngineModel.setupPlayerDelegate(self)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        recEngineModel.stopPlaying()
+        currentPlayingCell = nil
     }
     
     private let searchBar = {
@@ -94,14 +101,37 @@ class SearchViewController: UITableViewController, UISearchBarDelegate, PlayerDe
     
     // MARK: - Search Bar
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    internal func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         currentManagingFiles = storageModel.search(withPhrase: searchText)
-//        if currentPlayingCell != nil {
-//            recEngineModel.stopPlaying()
-//            currentPlayingCell = nil
-//        }
+        recEngineModel.stopPlaying()
+        currentPlayingCell = nil
         nothingToShowLabel.isHidden = !currentManagingFiles.isEmpty
         tableView.reloadData()
+    }
+    
+    internal func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
+    
+    internal func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.resignFirstResponder()
+    }
+    
+    internal func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.resignFirstResponder()
+    }
+    
+    private func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        tableView.addGestureRecognizer(tap)
+    }
+    
+    @objc private func dismissKeyboard() {
+        searchBar.endEditing(true)
+        searchBar.showsCancelButton = false
     }
     
     // MARK: - AV Player Delegate
