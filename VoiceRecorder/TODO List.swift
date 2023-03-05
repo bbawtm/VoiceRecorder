@@ -15,6 +15,7 @@
 // MARK: - Record VC
 
 // TODO: amplifier
+// TODO: pause button
 
 
 // MARK: - History VC
@@ -26,6 +27,14 @@
 // MARK: - Settings VC
 
 // TODO: this
+//
+// microphone adjustment (?)
+// recording quality (?)
+// choose format
+// add outer file
+//
+// don't allow standby mode
+// your voice is recording
 
 
 // MARK: - Each Table Cell

@@ -1,5 +1,5 @@
 //
-//  AppropriateAudioFormatsModel.swift
+//  AppropriateFormats.swift
 //  VoiceRecorder
 //
 //  Created by Vadim Popov on 24.02.2023.
@@ -9,7 +9,7 @@ import UIKit
 import AVFoundation
 
 
-class AppropriateAudioFormatsModel {
+class AppropriateFormats {
     
     class AudioFormat: CustomStringConvertible {
         let description: String

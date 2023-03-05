@@ -100,7 +100,7 @@ class RecEngineModel {
             dateFormatter.timeZone = .current
             dateFormatter.dateFormat = "dd MMM yyyy, HH:mm:ss"
             let audioName = dateFormatter.string(from: Date())
-            guard let audioExtension = AppropriateAudioFormatsModel.getFirstExtension(byKey: kAudioFormatMPEG4AAC) else {
+            guard let audioExtension = AppropriateFormats.getFirstExtension(byKey: kAudioFormatMPEG4AAC) else {
                 fatalError("Unsupported type format")
             }
             

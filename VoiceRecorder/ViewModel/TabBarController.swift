@@ -39,22 +39,22 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         let vc = SearchViewController()
         let (ordinary, selected) = configureTabBarImages(systemName: "magnifyingglass")
         vc.tabBarItem = UITabBarItem(title: nil, image: ordinary, selectedImage: selected)
-        
-        let navVC = UINavigationController(rootViewController: vc)
-        return navVC
+        return UINavigationController(rootViewController: vc)
     }()
     
     private let recordVC: UIViewController = {
         let vc = RecordViewController()
         let (ordinary, selected) = configureTabBarImages(systemName: "mic.fill", color: UIColor(named: "appRed") ?? .red)
         vc.tabBarItem = UITabBarItem(title: nil, image: ordinary, selectedImage: selected)
-        return vc
+        vc.navigationItem.title = "Record"
+        return UINavigationController(rootViewController: vc)
     }()
     
     private let historyVC: UIViewController = {
         let vc = HistoryViewController()
         let (ordinary, selected) = configureTabBarImages(systemName: "clock.arrow.circlepath")
         vc.tabBarItem = UITabBarItem(title: nil, image: ordinary, selectedImage: selected)
+        vc.navigationItem.title = "History"
         return UINavigationController(rootViewController: vc)
     }()
     
@@ -62,7 +62,8 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         let vc = SettingsViewController()
         let (ordinary, selected) = configureTabBarImages(systemName: "gearshape.fill")
         vc.tabBarItem = UITabBarItem(title: nil, image: ordinary, selectedImage: selected)
-        return vc
+        vc.navigationItem.title = "Settings"
+        return UINavigationController(rootViewController: vc)
     }()
     
     // MARK: - Configure images function

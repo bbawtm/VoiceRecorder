@@ -75,7 +75,7 @@ class StorageModel {
         let resourceKeys: [URLResourceKey] = [.fileSizeKey, .creationDateKey]
         
         for fileURL in allFiles {
-            if fileURL.isFileURL && AppropriateAudioFormatsModel.allExtensions.contains(fileURL.pathExtension) {
+            if fileURL.isFileURL && AppropriateFormats.allExtensions.contains(fileURL.pathExtension) {
                 let audioFile: AudioFile
                 do {
                     let resourceValues = try fileURL.resourceValues(forKeys: Set(resourceKeys))

@@ -17,7 +17,7 @@
 		947075A129A77C45000508B3 /* CommonLabelSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947075A029A77C45000508B3 /* CommonLabelSettings.swift */; };
 		947075A329A8CA7C000508B3 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947075A229A8CA7C000508B3 /* RecordView.swift */; };
 		947075A529A8E7F8000508B3 /* StorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947075A429A8E7F8000508B3 /* StorageModel.swift */; };
-		947075A729A8EC4A000508B3 /* AppropriateAudioFormatsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947075A629A8EC4A000508B3 /* AppropriateAudioFormatsModel.swift */; };
+		947075A729A8EC4A000508B3 /* AppropriateFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947075A629A8EC4A000508B3 /* AppropriateFormats.swift */; };
 		947075A929A8F2F7000508B3 /* EachTableCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 947075A829A8F2F7000508B3 /* EachTableCellNib.xib */; };
 		947075AC29A8F64E000508B3 /* EachTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947075AB29A8F64E000508B3 /* EachTableCellView.swift */; };
 		9478069829AB618800CB8A64 /* SettingsLinkTableCellNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9478069729AB618800CB8A64 /* SettingsLinkTableCellNib.swift */; };
@@ -45,7 +45,7 @@
 		947075A029A77C45000508B3 /* CommonLabelSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonLabelSettings.swift; sourceTree = "<group>"; };
 		947075A229A8CA7C000508B3 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		947075A429A8E7F8000508B3 /* StorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageModel.swift; sourceTree = "<group>"; };
-		947075A629A8EC4A000508B3 /* AppropriateAudioFormatsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppropriateAudioFormatsModel.swift; sourceTree = "<group>"; };
+		947075A629A8EC4A000508B3 /* AppropriateFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppropriateFormats.swift; sourceTree = "<group>"; };
 		947075A829A8F2F7000508B3 /* EachTableCellNib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EachTableCellNib.xib; sourceTree = "<group>"; };
 		947075AB29A8F64E000508B3 /* EachTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachTableCellView.swift; sourceTree = "<group>"; };
 		9478069729AB618800CB8A64 /* SettingsLinkTableCellNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLinkTableCellNib.swift; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				947075A429A8E7F8000508B3 /* StorageModel.swift */,
-				947075A629A8EC4A000508B3 /* AppropriateAudioFormatsModel.swift */,
+				947075A629A8EC4A000508B3 /* AppropriateFormats.swift */,
 				94F8975229A93D9A00855A67 /* RecEngineModel.swift */,
 			);
 			path = Model;
@@ -263,7 +263,7 @@
 				9470759329A75DB8000508B3 /* TabBarController.swift in Sources */,
 				947075A529A8E7F8000508B3 /* StorageModel.swift in Sources */,
 				947075A329A8CA7C000508B3 /* RecordView.swift in Sources */,
-				947075A729A8EC4A000508B3 /* AppropriateAudioFormatsModel.swift in Sources */,
+				947075A729A8EC4A000508B3 /* AppropriateFormats.swift in Sources */,
 				9478069829AB618800CB8A64 /* SettingsLinkTableCellNib.swift in Sources */,
 				9470759B29A76142000508B3 /* SettingsViewController.swift in Sources */,
 				94ED28F929A750D000111C8F /* AppDelegate.swift in Sources */,
