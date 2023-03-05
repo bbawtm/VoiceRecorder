@@ -21,6 +21,7 @@ class RecEngineModel {
     private var meterTimer: Timer!
     private var isAudioRecordingGranted: Bool!
     private var isRecording = false
+    private var isPausedRecording = false
     private var isPlaying = false
     private var recorderDelegate: (any RecorderVCD)?
     private var playerDelegate: (any PlayerVCD)?
@@ -153,7 +154,20 @@ class RecEngineModel {
         audioRecorder.stop()
         audioRecorder = nil
         meterTimer.invalidate()
-        print("recorded successfully.")
+        isRecording = false
+    }
+    
+    public func pauseRecording() {
+        guard isRecording else { return }
+        if isPausedRecording {
+            isPausedRecording = false
+            audioRecorder.record()
+            recorderDelegate?.recordingDidContinued()
+        } else {
+            isPausedRecording = true
+            audioRecorder.pause()
+            recorderDelegate?.recordingDidPauseed()
+        }
     }
     
     // MARK: - Player
@@ -197,6 +211,8 @@ protocol RecorderDelegate {
     func recordingDidStart()
     func recordingDidEnd()
     func recordingCurrentTiming(_: String)
+    func recordingDidPauseed()
+    func recordingDidContinued()
 }
 
 protocol PlayerDelegate {

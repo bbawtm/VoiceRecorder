@@ -13,16 +13,19 @@ class RecordView: UIView {
     // MARK: Properties
     
     private let startRecordingSelector: Selector
+    private let playpauseRecordingSelector: Selector
     
     // MARK: - Initializing
     
-    @objc public init(startRecordingSelector: Selector) {
+    @objc public init(startRecordingSelector: Selector, playpauseRecordingSelector: Selector) {
         self.startRecordingSelector = startRecordingSelector
+        self.playpauseRecordingSelector = playpauseRecordingSelector
         super.init(frame: .zero)
         
         backgroundColor = UIColor(named: "appDark")
         
         addSubview(recordingTimeLabel)
+        addSubview(pauseButton)
         addSubview(recordButton)
         
         NSLayoutConstraint.activate([
@@ -31,10 +34,15 @@ class RecordView: UIView {
             recordingTimeLabel.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor, constant: -16),
             recordingTimeLabel.heightAnchor.constraint(equalToConstant: 70),
             
+            pauseButton.topAnchor.constraint(equalTo: recordingTimeLabel.bottomAnchor, constant: 30),
+            pauseButton.heightAnchor.constraint(equalToConstant: 64),
+            pauseButton.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor, constant: 16),
+            
             recordButton.topAnchor.constraint(equalTo: recordingTimeLabel.bottomAnchor, constant: 30),
             recordButton.heightAnchor.constraint(equalToConstant: 64),
-            recordButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            recordButton.widthAnchor.constraint(equalToConstant: 300),
+            recordButton.leftAnchor.constraint(equalTo: pauseButton.rightAnchor, constant: 20),
+            recordButton.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor, constant: -16),
+            recordButton.widthAnchor.constraint(equalTo: pauseButton.widthAnchor, multiplier: 2)
         ])
     }
     
@@ -81,20 +89,57 @@ class RecordView: UIView {
         return button
     }()
     
+    private lazy var pauseButton = {
+        let button = UIButton(type: .infoDark)
+        let whiteColor = UIColor(named: "appWhite") ?? UIColor.white
+        button.setImage(
+            UIImage(systemName: "pause.fill")?.withTintColor(whiteColor, renderingMode: .alwaysOriginal),
+            for: .normal
+        )
+        button.setImage(
+            UIImage(systemName: "pause.fill")?.withTintColor(whiteColor.withAlphaComponent(0.4), renderingMode: .alwaysOriginal),
+            for: .disabled
+        )
+        button.setImage(
+            UIImage(systemName: "playpause.fill")?.withTintColor(whiteColor, renderingMode: .alwaysOriginal),
+            for: .selected
+        )
+        button.addTarget(nil, action: playpauseRecordingSelector, for: .touchUpInside)
+        button.layer.borderWidth = 4
+        button.layer.borderColor = UIColor(named: "appDarkest")?.cgColor ?? UIColor.systemGray2.cgColor
+        button.layer.cornerRadius = 32
+        button.backgroundColor = UIColor(named: "appDark")?.withAlphaComponent(0.2) ?? .systemGray2
+        button.isEnabled = false
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     // MARK: - Public methods
     
     public func startRecording() {
         recordButton.isEnabled = true
         recordButton.isSelected = true
+        pauseButton.isEnabled = true
+        pauseButton.isSelected = false
     }
     
     public func stopRecording() {
         recordButton.isEnabled = true
         recordButton.isSelected = false
+        pauseButton.isEnabled = false
+        pauseButton.isSelected = false
     }
     
     public func setCurrentTiming(_ currentTime: String) {
         recordingTimeLabel.text = currentTime
+    }
+    
+    public func pauseRecording() {
+        pauseButton.isSelected = true
+    }
+    
+    public func continueRecording() {
+        pauseButton.isSelected = false
     }
     
 }
