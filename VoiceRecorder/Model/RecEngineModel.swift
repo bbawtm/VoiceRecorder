@@ -111,6 +111,7 @@ class RecEngineModel {
             )
             audioRecorder.delegate = recorderDelegate
             audioRecorder.isMeteringEnabled = true
+            audioRecorder.updateMeters()
             audioRecorder.prepareToRecord()
         } catch {
             displayAlert(title: "Ошибка", description: error.localizedDescription)
@@ -155,6 +156,8 @@ class RecEngineModel {
         audioRecorder = nil
         meterTimer.invalidate()
         isRecording = false
+        
+        (UIApplication.shared.delegate as? AppDelegate)?.reloadAppData()
     }
     
     public func pauseRecording() {

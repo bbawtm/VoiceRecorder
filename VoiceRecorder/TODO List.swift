@@ -15,13 +15,9 @@
 // MARK: - Record VC
 
 // TODO: amplifier
-// TODO: pause button
 
 
 // MARK: - History VC
-
-// TODO: slider on playing audio
-// TODO: tabbar zero top space
 
 
 // MARK: - Settings VC
@@ -40,3 +36,4 @@
 // MARK: - Each Table Cell
 
 // TODO: separated screen
+// TODO: slider on playing audio

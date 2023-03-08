@@ -18,6 +18,7 @@ class HistoryViewController: UITableViewController, PlayerDelegate, AVAudioPlaye
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        (UIApplication.shared.delegate as? AppDelegate)?.linkHistoryVC(self)
         
         tableView.backgroundColor = UIColor(named: "appDark")
         tableView.register(UINib(nibName: "EachTableCellNib", bundle: .main), forCellReuseIdentifier: "HistoryTableCell")

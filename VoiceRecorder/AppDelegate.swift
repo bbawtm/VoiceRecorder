@@ -19,6 +19,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     public let storageModel = StorageModel()
     public let recEngineModel = RecEngineModel()
+    private var searchVC: SearchViewController?
+    private var historyVC: HistoryViewController?
+    
+    // Reload all data method
+    public func reloadAppData() {
+        storageModel.validateModel()
+        searchVC?.tableView.reloadData()
+        historyVC?.tableView.reloadData()
+    }
+    
+    // Link 'Data' View Controllers
+    
+    public func linkSearchVC(_ searchVC: SearchViewController) {
+        self.searchVC = searchVC
+    }
+    
+    public func linkHistoryVC(_ historyVC: HistoryViewController) {
+        self.historyVC = historyVC
+    }
 
     // MARK: UISceneSession Lifecycle
 

@@ -28,7 +28,7 @@ class StorageModel {
     }
     
     // All stored audio files
-    public var allAudio: [AudioFile]
+    public var allAudio: [AudioFile] = []
     
     // Section title <-> [indices]
     private var dateMapContents: [String: [Int]]? = nil
@@ -61,7 +61,13 @@ class StorageModel {
     }
     
     public init() {
+        validateModel()
+    }
+    
+    public func validateModel() {
         self.allAudio = []
+        self.dateOrderContents = nil
+        self.dateMapContents = nil
         
         let documentsDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         print("Document directory: \(documentsDir.absoluteString)")

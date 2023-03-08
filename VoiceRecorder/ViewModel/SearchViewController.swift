@@ -19,6 +19,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate, PlayerDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        (UIApplication.shared.delegate as? AppDelegate)?.linkSearchVC(self)
         
         searchBar.delegate = self
         navigationItem.titleView = searchBar
