@@ -30,7 +30,7 @@
 // add outer file
 //
 // don't allow standby mode
-// your voice is recording
+// "your voice is recording" phrase
 
 
 // MARK: - Each Table Cell
