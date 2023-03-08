@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9433410029B91CA2002DFBA7 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943340FF29B91CA2002DFBA7 /* SettingsModel.swift */; };
+		9433410229B92136002DFBA7 /* SettingsCellViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9433410129B92136002DFBA7 /* SettingsCellViewInterface.swift */; };
 		9470759329A75DB8000508B3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9470759229A75DB8000508B3 /* TabBarController.swift */; };
 		9470759529A75F4F000508B3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9470759429A75F4F000508B3 /* HomeViewController.swift */; };
 		9470759729A75F81000508B3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9470759629A75F81000508B3 /* SearchViewController.swift */; };
@@ -20,10 +22,10 @@
 		947075A729A8EC4A000508B3 /* AppropriateFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947075A629A8EC4A000508B3 /* AppropriateFormats.swift */; };
 		947075A929A8F2F7000508B3 /* EachTableCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 947075A829A8F2F7000508B3 /* EachTableCellNib.xib */; };
 		947075AC29A8F64E000508B3 /* EachTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947075AB29A8F64E000508B3 /* EachTableCellView.swift */; };
-		9478069829AB618800CB8A64 /* SettingsLinkTableCellNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9478069729AB618800CB8A64 /* SettingsLinkTableCellNib.swift */; };
+		9478069829AB618800CB8A64 /* SettingsLinkTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9478069729AB618800CB8A64 /* SettingsLinkTableCellView.swift */; };
 		9478069C29AB630800CB8A64 /* SettingsLinkTableCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9478069B29AB630800CB8A64 /* SettingsLinkTableCellNib.xib */; };
 		9478069E29AB631300CB8A64 /* SettingsToggleTableCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9478069D29AB631300CB8A64 /* SettingsToggleTableCellNib.xib */; };
-		947806A029AB633600CB8A64 /* SettingsToggleTableCellNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9478069F29AB633600CB8A64 /* SettingsToggleTableCellNib.swift */; };
+		947806A029AB633600CB8A64 /* SettingsToggleTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9478069F29AB633600CB8A64 /* SettingsToggleTableCellView.swift */; };
 		947806A229AB676300CB8A64 /* TODO List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947806A129AB676300CB8A64 /* TODO List.swift */; };
 		94ED28F929A750D000111C8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ED28F829A750D000111C8F /* AppDelegate.swift */; };
 		94ED28FB29A750D000111C8F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ED28FA29A750D000111C8F /* SceneDelegate.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		943340FF29B91CA2002DFBA7 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		9433410129B92136002DFBA7 /* SettingsCellViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellViewInterface.swift; sourceTree = "<group>"; };
 		9470759229A75DB8000508B3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		9470759429A75F4F000508B3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9470759629A75F81000508B3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -48,10 +52,10 @@
 		947075A629A8EC4A000508B3 /* AppropriateFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppropriateFormats.swift; sourceTree = "<group>"; };
 		947075A829A8F2F7000508B3 /* EachTableCellNib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EachTableCellNib.xib; sourceTree = "<group>"; };
 		947075AB29A8F64E000508B3 /* EachTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachTableCellView.swift; sourceTree = "<group>"; };
-		9478069729AB618800CB8A64 /* SettingsLinkTableCellNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLinkTableCellNib.swift; sourceTree = "<group>"; };
+		9478069729AB618800CB8A64 /* SettingsLinkTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLinkTableCellView.swift; sourceTree = "<group>"; };
 		9478069B29AB630800CB8A64 /* SettingsLinkTableCellNib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsLinkTableCellNib.xib; sourceTree = "<group>"; };
 		9478069D29AB631300CB8A64 /* SettingsToggleTableCellNib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsToggleTableCellNib.xib; sourceTree = "<group>"; };
-		9478069F29AB633600CB8A64 /* SettingsToggleTableCellNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsToggleTableCellNib.swift; sourceTree = "<group>"; };
+		9478069F29AB633600CB8A64 /* SettingsToggleTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsToggleTableCellView.swift; sourceTree = "<group>"; };
 		947806A129AB676300CB8A64 /* TODO List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TODO List.swift"; sourceTree = "<group>"; };
 		94ED28F529A750D000111C8F /* VoiceRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94ED28F829A750D000111C8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,8 +92,9 @@
 			isa = PBXGroup;
 			children = (
 				9478069A29AB62E900CB8A64 /* Nibs */,
-				9478069729AB618800CB8A64 /* SettingsLinkTableCellNib.swift */,
-				9478069F29AB633600CB8A64 /* SettingsToggleTableCellNib.swift */,
+				9433410129B92136002DFBA7 /* SettingsCellViewInterface.swift */,
+				9478069729AB618800CB8A64 /* SettingsLinkTableCellView.swift */,
+				9478069F29AB633600CB8A64 /* SettingsToggleTableCellView.swift */,
 			);
 			path = SettingsTableCells;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 				947075A429A8E7F8000508B3 /* StorageModel.swift */,
 				947075A629A8EC4A000508B3 /* AppropriateFormats.swift */,
 				94F8975229A93D9A00855A67 /* RecEngineModel.swift */,
+				943340FF29B91CA2002DFBA7 /* SettingsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -259,12 +265,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9470759F29A77994000508B3 /* HomeView.swift in Sources */,
+				9433410029B91CA2002DFBA7 /* SettingsModel.swift in Sources */,
 				9470759729A75F81000508B3 /* SearchViewController.swift in Sources */,
 				9470759329A75DB8000508B3 /* TabBarController.swift in Sources */,
 				947075A529A8E7F8000508B3 /* StorageModel.swift in Sources */,
 				947075A329A8CA7C000508B3 /* RecordView.swift in Sources */,
 				947075A729A8EC4A000508B3 /* AppropriateFormats.swift in Sources */,
-				9478069829AB618800CB8A64 /* SettingsLinkTableCellNib.swift in Sources */,
+				9478069829AB618800CB8A64 /* SettingsLinkTableCellView.swift in Sources */,
 				9470759B29A76142000508B3 /* SettingsViewController.swift in Sources */,
 				94ED28F929A750D000111C8F /* AppDelegate.swift in Sources */,
 				947075AC29A8F64E000508B3 /* EachTableCellView.swift in Sources */,
@@ -272,10 +279,11 @@
 				9470759929A75FDA000508B3 /* RecordViewController.swift in Sources */,
 				94ED28FB29A750D000111C8F /* SceneDelegate.swift in Sources */,
 				9470759529A75F4F000508B3 /* HomeViewController.swift in Sources */,
+				9433410229B92136002DFBA7 /* SettingsCellViewInterface.swift in Sources */,
 				947075A129A77C45000508B3 /* CommonLabelSettings.swift in Sources */,
 				9470759D29A762BB000508B3 /* HistoryViewController.swift in Sources */,
 				947806A229AB676300CB8A64 /* TODO List.swift in Sources */,
-				947806A029AB633600CB8A64 /* SettingsToggleTableCellNib.swift in Sources */,
+				947806A029AB633600CB8A64 /* SettingsToggleTableCellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

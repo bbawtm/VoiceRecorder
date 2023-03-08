@@ -10,6 +10,8 @@ import UIKit
 
 class SettingsViewController: UITableViewController {
     
+    let settingsModel = (UIApplication.shared.delegate as! AppDelegate).settingsModel
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = UIColor(named: "appDark")
@@ -21,6 +23,41 @@ class SettingsViewController: UITableViewController {
             UINib(nibName: "SettingsToggleTableCellNib", bundle: .main),
             forCellReuseIdentifier: "SettingsToggleTableCell"
         )
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        settingsModel.numberOfSections()
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        settingsModel.numberOfRowsInSection(section)
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellModel = settingsModel.getItem(section: indexPath.section, row: indexPath.row)
+        let cell: (UITableViewCell & SettingsCellViewInterface)?
+        if indexPath.section == 0 {
+            cell = tableView.dequeueReusableCell(withIdentifier: "SettingsLinkTableCell") as? SettingsLinkTableCellView
+        } else {
+            cell = tableView.dequeueReusableCell(withIdentifier: "SettingsToggleTableCell") as? SettingsToggleTableCellView
+        }
+        guard let cell else {
+            fatalError("Wrong identifier name")
+        }
+        cell.configure(withTitle: cellModel.name, icon: UIImage(named: cellModel.iconName))
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        30
+    }
+
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        60
     }
     
 }

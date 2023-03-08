@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SettingsLinkTableCellNib" customModule="VoiceRecorder" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SettingsLinkTableCellView" customModule="VoiceRecorder" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -30,11 +30,11 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EG7-ue-TlU">
-                    <rect key="frame" x="325" y="36.333333333333329" width="30" height="23.333333333333336"/>
-                    <color key="tintColor" name="appLight"/>
+                    <rect key="frame" x="330" y="38.666666666666657" width="25" height="18.333333333333336"/>
+                    <color key="tintColor" name="appGray"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="Ubi-CZ-mTf"/>
-                        <constraint firstAttribute="width" constant="30" id="ydV-R6-VHu"/>
+                        <constraint firstAttribute="height" constant="25" id="Ubi-CZ-mTf"/>
+                        <constraint firstAttribute="width" constant="25" id="ydV-R6-VHu"/>
                     </constraints>
                     <imageReference key="image" image="chevron.right" catalog="system" symbolScale="small"/>
                 </imageView>
@@ -51,16 +51,16 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="iconImageView" destination="HPO-tN-oib" id="8Gx-b9-yzy"/>
-                <outlet property="titleLabel" destination="3xf-u9-J85" id="24m-8f-rV7"/>
+                <outlet property="iconImageView" destination="HPO-tN-oib" id="l6v-9J-Tyu"/>
+                <outlet property="titleLabel" destination="3xf-u9-J85" id="p9Q-v9-GGG"/>
             </connections>
             <point key="canvasLocation" x="129.00763358778624" y="-180.63380281690141"/>
         </view>
     </objects>
     <resources>
         <image name="chevron.right" catalog="system" width="97" height="128"/>
-        <namedColor name="appLight">
-            <color red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="appGray">
+            <color red="0.47450980392156861" green="0.47450980392156861" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

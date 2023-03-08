@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     public let storageModel = StorageModel()
     public let recEngineModel = RecEngineModel()
+    public let settingsModel = SettingsModel()
+    
     private var searchVC: SearchViewController?
     private var historyVC: HistoryViewController?
     
