@@ -44,7 +44,10 @@ class SettingsViewController: UITableViewController {
         guard let cell else {
             fatalError("Wrong identifier name")
         }
-        cell.configure(withTitle: cellModel.name, icon: UIImage(named: cellModel.iconName))
+        cell.configure(
+            withTitle: cellModel.name,
+            icon: cellModel.getIcon()?.withTintColor(UIColor(named: "appLight") ?? .white, renderingMode: .alwaysOriginal)
+        )
         return cell
     }
     

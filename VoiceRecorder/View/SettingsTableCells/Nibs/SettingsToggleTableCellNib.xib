@@ -15,16 +15,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c73-10-fok">
-                    <rect key="frame" x="72" y="37" width="42" height="21"/>
+                    <rect key="frame" x="62" y="37" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LvI-PN-3lt">
-                    <rect key="frame" x="16" y="27.666666666666671" width="40" height="40"/>
+                    <rect key="frame" x="16" y="32.666666666666664" width="30" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="40" id="VsT-gc-aKI"/>
-                        <constraint firstAttribute="height" constant="40" id="wWh-OW-rND"/>
+                        <constraint firstAttribute="width" constant="30" id="VsT-gc-aKI"/>
+                        <constraint firstAttribute="height" constant="30" id="wWh-OW-rND"/>
                     </constraints>
                 </imageView>
             </subviews>

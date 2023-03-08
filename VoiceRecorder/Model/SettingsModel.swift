@@ -20,16 +20,23 @@ class SettingsModel {
             self.sectionNum = sectionNum
             self.iconName = iconName
         }
+        
+        public func getIcon() -> UIImage? {
+            if iconName.hasPrefix("sf.") {
+                return UIImage(systemName: iconName.dropFirst(3).description)
+            }
+            return UIImage(named: iconName)
+        }
     }
     
     public let mainTableCells: [MainTableCell] = [
-        .init(name: "Microphone adjustment", sectionNum: 0, iconName: "AppIcon"),
-        .init(name: "Recording quality", sectionNum: 0, iconName: "AppIcon"),
-        .init(name: "Choose format", sectionNum: 0, iconName: "AppIcon"),
-        .init(name: "Add outer file", sectionNum: 0, iconName: "AppIcon"),
+        .init(name: "Microphone adjustment", sectionNum: 0, iconName: "sf.music.mic"),
+        .init(name: "Recording quality", sectionNum: 0, iconName: "sf.recordingtape.circle.fill"),
+        .init(name: "Choose format", sectionNum: 0, iconName: "sf.doc.badge.gearshape.fill"),
+        .init(name: "Add outer file", sectionNum: 0, iconName: "sf.tray.and.arrow.down.fill"),
         
-        .init(name: "Don't allow standby mode", sectionNum: 1, iconName: "AppIcon"),
-        .init(name: "\"Your voice is recording\" phrase", sectionNum: 1, iconName: "AppIcon"),
+        .init(name: "Don't allow standby mode", sectionNum: 1, iconName: "sf.iphone.circle.fill"),
+        .init(name: "\"Your voice is recording\" phrase", sectionNum: 1, iconName: "sf.ear.fill"),
     ]
     
     public func numberOfSections() -> Int {
