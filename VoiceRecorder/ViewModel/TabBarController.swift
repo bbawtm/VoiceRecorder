@@ -59,7 +59,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     }()
     
     private let settingsVC: UIViewController = {
-        let vc = SettingsViewController()
+        let vc = SettingsViewController(style: .insetGrouped)
         let (ordinary, selected) = configureTabBarImages(systemName: "gearshape.fill")
         vc.tabBarItem = UITabBarItem(title: nil, image: ordinary, selectedImage: selected)
         vc.navigationItem.title = "Settings"
