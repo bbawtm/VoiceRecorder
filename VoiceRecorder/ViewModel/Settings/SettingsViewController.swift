@@ -48,7 +48,11 @@ class SettingsViewController: UITableViewController {
         cell.configure(
             withTitle: cellModel.name,
             icon: cellModel.getIcon()?.withTintColor(UIColor(named: "appLight") ?? .white, renderingMode: .alwaysOriginal)
-        )
+        ) { value in
+            if let vc = cellModel.performAction(state: value) {
+                self.present(vc, animated: true)
+            }
+        }
         return cell
     }
     
@@ -62,6 +66,14 @@ class SettingsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         60
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? SettingsCellViewInterface else {
+            print("Unable to identify cell")
+            return
+        }
+        cell.performAction()
     }
     
 }

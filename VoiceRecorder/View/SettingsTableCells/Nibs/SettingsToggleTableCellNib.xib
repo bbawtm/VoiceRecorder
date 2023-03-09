@@ -27,19 +27,28 @@
                         <constraint firstAttribute="height" constant="27" id="wWh-OW-rND"/>
                     </constraints>
                 </imageView>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yoa-2w-5Tk">
+                    <rect key="frame" x="308" y="32" width="51" height="31"/>
+                    <connections>
+                        <action selector="toggleDidPressedWithSender:" destination="iN0-l3-epB" eventType="valueChanged" id="NpW-RY-TaW"/>
+                    </connections>
+                </switch>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="yoa-2w-5Tk" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="D9d-ne-gPe"/>
                 <constraint firstItem="LvI-PN-3lt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="GHm-ZY-q40"/>
                 <constraint firstItem="LvI-PN-3lt" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="LoR-1S-wjS"/>
                 <constraint firstItem="c73-10-fok" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="MG6-3L-8bH"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="yoa-2w-5Tk" secondAttribute="trailing" constant="18" id="VZG-RC-Het"/>
                 <constraint firstItem="c73-10-fok" firstAttribute="leading" secondItem="LvI-PN-3lt" secondAttribute="trailing" constant="16" id="Z5Y-30-Ql8"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="iconImageView" destination="LvI-PN-3lt" id="dwd-Ph-lVZ"/>
                 <outlet property="titleLabel" destination="c73-10-fok" id="Ueu-jT-rub"/>
+                <outlet property="toggleSwitch" destination="yoa-2w-5Tk" id="WhO-LO-l22"/>
             </connections>
             <point key="canvasLocation" x="129.00763358778624" y="-180.63380281690141"/>
         </view>

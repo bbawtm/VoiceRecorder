@@ -9,5 +9,6 @@ import UIKit
 
 
 protocol SettingsCellViewInterface {
-    func configure(withTitle title: String, icon: UIImage?)
+    func configure(withTitle title: String, icon: UIImage?, callback: @escaping (Bool) -> Void)
+    func performAction()
 }

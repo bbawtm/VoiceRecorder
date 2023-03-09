@@ -13,7 +13,9 @@ class SettingsLinkTableCellView: UITableViewCell, SettingsCellViewInterface {
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    public func configure(withTitle title: String, icon: UIImage?) {
+    private var touchCallback: ((Bool) -> Void)?
+    
+    public func configure(withTitle title: String, icon: UIImage?, callback: @escaping (Bool) -> Void) {
         backgroundColor = UIColor(named: "appDarkGray")
         selectionStyle = .none
         
@@ -21,6 +23,12 @@ class SettingsLinkTableCellView: UITableViewCell, SettingsCellViewInterface {
         titleLabel.text = title
         
         titleLabel.appOrdinaryTextStyle()
+        
+        touchCallback = callback
+    }
+    
+    public func performAction() {
+        touchCallback?(true)
     }
     
 }
