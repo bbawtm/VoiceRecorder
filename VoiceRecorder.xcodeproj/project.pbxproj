@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9433410029B91CA2002DFBA7 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943340FF29B91CA2002DFBA7 /* SettingsModel.swift */; };
 		9433410229B92136002DFBA7 /* SettingsCellViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9433410129B92136002DFBA7 /* SettingsCellViewInterface.swift */; };
+		9433410429BA019C002DFBA7 /* InstallationUnitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9433410329BA019C002DFBA7 /* InstallationUnitData.swift */; };
 		9470759329A75DB8000508B3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9470759229A75DB8000508B3 /* TabBarController.swift */; };
 		9470759529A75F4F000508B3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9470759429A75F4F000508B3 /* HomeViewController.swift */; };
 		9470759729A75F81000508B3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9470759629A75F81000508B3 /* SearchViewController.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		943340FF29B91CA2002DFBA7 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		9433410129B92136002DFBA7 /* SettingsCellViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellViewInterface.swift; sourceTree = "<group>"; };
+		9433410329BA019C002DFBA7 /* InstallationUnitData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallationUnitData.swift; sourceTree = "<group>"; };
 		9470759229A75DB8000508B3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		9470759429A75F4F000508B3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9470759629A75F81000508B3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				947075A629A8EC4A000508B3 /* AppropriateFormats.swift */,
 				94F8975229A93D9A00855A67 /* RecEngineModel.swift */,
 				943340FF29B91CA2002DFBA7 /* SettingsModel.swift */,
+				9433410329BA019C002DFBA7 /* InstallationUnitData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				94F8975329A93D9A00855A67 /* RecEngineModel.swift in Sources */,
 				9470759929A75FDA000508B3 /* RecordViewController.swift in Sources */,
 				94ED28FB29A750D000111C8F /* SceneDelegate.swift in Sources */,
+				9433410429BA019C002DFBA7 /* InstallationUnitData.swift in Sources */,
 				9470759529A75F4F000508B3 /* HomeViewController.swift in Sources */,
 				9433410229B92136002DFBA7 /* SettingsCellViewInterface.swift in Sources */,
 				947075A129A77C45000508B3 /* CommonLabelSettings.swift in Sources */,
