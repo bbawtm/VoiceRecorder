@@ -16,7 +16,7 @@ class SettingsToggleTableCellView: UITableViewCell, SettingsCellViewInterface {
     
     private var toggleCallback: ((Bool) -> Void)?
     
-    public func configure(withTitle title: String, icon: UIImage?, callback: @escaping (Bool) -> Void) {
+    public func configure(withTitle title: String, icon: UIImage?, state: Bool, callback: @escaping (Bool) -> Void) {
         backgroundColor = UIColor(named: "appDarkGray")
         selectionStyle = .none
         
@@ -26,6 +26,7 @@ class SettingsToggleTableCellView: UITableViewCell, SettingsCellViewInterface {
         titleLabel.appOrdinaryTextStyle()
         
         toggleCallback = callback
+        toggleSwitch.isOn = state
     }
     
     @IBAction func toggleDidPressed(sender: UISwitch) {

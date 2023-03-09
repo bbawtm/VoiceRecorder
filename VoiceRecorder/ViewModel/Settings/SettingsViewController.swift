@@ -47,7 +47,8 @@ class SettingsViewController: UITableViewController {
         }
         cell.configure(
             withTitle: cellModel.name,
-            icon: cellModel.getIcon()?.withTintColor(UIColor(named: "appLight") ?? .white, renderingMode: .alwaysOriginal)
+            icon: cellModel.getIcon()?.withTintColor(UIColor(named: "appLight") ?? .white, renderingMode: .alwaysOriginal),
+            state: cellModel.stateValue
         ) { value in
             if let vc = cellModel.performAction(state: value) {
                 self.present(vc, animated: true)

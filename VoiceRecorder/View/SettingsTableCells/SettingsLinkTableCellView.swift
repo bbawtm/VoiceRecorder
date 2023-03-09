@@ -15,7 +15,7 @@ class SettingsLinkTableCellView: UITableViewCell, SettingsCellViewInterface {
     
     private var touchCallback: ((Bool) -> Void)?
     
-    public func configure(withTitle title: String, icon: UIImage?, callback: @escaping (Bool) -> Void) {
+    public func configure(withTitle title: String, icon: UIImage?, state: Bool, callback: @escaping (Bool) -> Void) {
         backgroundColor = UIColor(named: "appDarkGray")
         selectionStyle = .none
         
