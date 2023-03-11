@@ -14,7 +14,7 @@
 
 // MARK: - Record VC
 
-// TODO: amplifier
+// amplifier
 
 
 // MARK: - History VC
@@ -25,11 +25,9 @@
 // microphone adjustment (?)
 // recording quality (?)
 // choose format
-// TODO: add outer file
 
 
 // MARK: - Each Table Cell
 
-// rename audio
-// separated screen
+// separated screen (rename audio)
 // slider on playing audio
