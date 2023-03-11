@@ -8,7 +8,11 @@ Voice recording application. The goal is to reflect the basic skills of iOS app 
 * **MVVM** pattern & **SOLID-based** architecture.
 
 ## Simulator Screen Recording
-<video src='https://disk.yandex.ru/i/afGc6LPfK2qxog'/>
+
+
+https://user-images.githubusercontent.com/29407844/224512671-289566f6-7aa1-46a5-881d-5d62d52d09ed.mp4
+
+
 
 ## Author
 Vadim Popov, [Telegram](https://t.me/vadim_o_popov), me@vadimpopov.ru.
