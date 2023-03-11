@@ -12,67 +12,23 @@ import RealmSwift
 protocol InstallationUnitProtocol {
     init()
     var unitKey: String { get }
+    var value: Bool { get }
     var mainTableCell: SettingsModel.MainTableCell { get }
 }
 
 
 class SettingsModel {
     
-    // MARK: - Settings
+    public static let audiosDirectoryName = "audio"
+    public static let recordingInitAudioURL = URL(
+        string: "your_voice_is_recording.mp3",
+        relativeTo: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    )!
     
-    class IdleTimerInstallationUnit: InstallationUnitProtocol {
-        
-        public let unitKey: String = "settings.isIdleTimerDisabled"
-        
-        private lazy var loadedInstallationUnit: InstallationUnitData? = {
-            let realm = try! Realm()
-            let dataUnits: [InstallationUnitData] = Array(realm.objects(InstallationUnitData.self))
-            let count = dataUnits.count
-            if count == 0 {
-                return nil
-            } else if count == 1 {
-                return dataUnits[0]
-            }
-            fatalError("More than 1 unit for one key")
-        }()
-        
-        required public init() {
-            if let loadedInstallationUnit {
-                let loadedValue = loadedInstallationUnit.value
-                UIApplication.shared.isIdleTimerDisabled = loadedValue == 1 ? true : false
-            } else {
-                let realm = try! Realm()
-                try! realm.write {
-                    let newDataUnit = InstallationUnitData()
-                    newDataUnit.key = unitKey
-                    newDataUnit.value = 0
-                    realm.add(newDataUnit)
-                    self.loadedInstallationUnit = newDataUnit
-                }
-                UIApplication.shared.isIdleTimerDisabled = false
-            }
-        }
-        
-        public lazy var mainTableCell = SettingsModel.MainTableCell(
-            name: "Don't allow standby mode",
-            sectionNum: 1,
-            iconName: "sf.iphone.circle.fill",
-            stateValue: UIApplication.shared.isIdleTimerDisabled,
-            action:
-                { state in
-                    guard let loadedUnit = self.loadedInstallationUnit else {
-                        fatalError("No loaded unit exists")
-                    }
-                    let realm = try! Realm()
-                    try! realm.write {
-                        loadedUnit.value = state ? 1 : 0
-                    }
-                    UIApplication.shared.isIdleTimerDisabled = state
-                    return nil
-                }
-        )
-        
-    }
+    public let settings: [InstallationUnitProtocol] = [
+        IdleTimerInstallationUnit(),
+        InitRecordingInstallationUnit()
+    ]
     
     // MARK: - Main table configuration
     
@@ -110,7 +66,9 @@ class SettingsModel {
         }
     }
     
-    public let mainTableCells: [MainTableCell] = [
+    
+    
+    public lazy var mainTableCells: [MainTableCell] = [
         .init(name: "Microphone adjustment", sectionNum: 0, iconName: "sf.music.mic", stateValue: false, action: { state in
             let alert = UIAlertController(title: "Settings", message: "Pressed 'Microphone adjustment' with state \(state)", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel))
@@ -131,14 +89,7 @@ class SettingsModel {
             alert.addAction(UIAlertAction(title: "OK", style: .cancel))
             return alert
         }),
-        
-        IdleTimerInstallationUnit().mainTableCell,
-        .init(name: "\"Your voice is recording\" phrase", sectionNum: 1, iconName: "sf.ear.fill", stateValue: false, action: { state in
-            let alert = UIAlertController(title: "Settings", message: "Pressed '\"Your voice is recording\" phrase' with state \(state)", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel))
-            return alert
-        }),
-    ]
+    ] + self.settings.map { $0.mainTableCell }
     
     public func numberOfSections() -> Int {
         Set(mainTableCells.map { $0.sectionNum }).count

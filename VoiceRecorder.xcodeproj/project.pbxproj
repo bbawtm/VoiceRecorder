@@ -10,6 +10,8 @@
 		9433410029B91CA2002DFBA7 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943340FF29B91CA2002DFBA7 /* SettingsModel.swift */; };
 		9433410229B92136002DFBA7 /* SettingsCellViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9433410129B92136002DFBA7 /* SettingsCellViewInterface.swift */; };
 		9433410429BA019C002DFBA7 /* InstallationUnitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9433410329BA019C002DFBA7 /* InstallationUnitData.swift */; };
+		944DA46329BC6BF800FFD322 /* IdleTimerInstallationUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944DA46229BC6BF800FFD322 /* IdleTimerInstallationUnit.swift */; };
+		944DA46529BC883000FFD322 /* InitRecordingInstallationUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944DA46429BC883000FFD322 /* InitRecordingInstallationUnit.swift */; };
 		9470759329A75DB8000508B3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9470759229A75DB8000508B3 /* TabBarController.swift */; };
 		9470759529A75F4F000508B3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9470759429A75F4F000508B3 /* HomeViewController.swift */; };
 		9470759729A75F81000508B3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9470759629A75F81000508B3 /* SearchViewController.swift */; };
@@ -41,6 +43,8 @@
 		943340FF29B91CA2002DFBA7 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		9433410129B92136002DFBA7 /* SettingsCellViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellViewInterface.swift; sourceTree = "<group>"; };
 		9433410329BA019C002DFBA7 /* InstallationUnitData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallationUnitData.swift; sourceTree = "<group>"; };
+		944DA46229BC6BF800FFD322 /* IdleTimerInstallationUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleTimerInstallationUnit.swift; sourceTree = "<group>"; };
+		944DA46429BC883000FFD322 /* InitRecordingInstallationUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitRecordingInstallationUnit.swift; sourceTree = "<group>"; };
 		9470759229A75DB8000508B3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		9470759429A75F4F000508B3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9470759629A75F81000508B3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +85,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		944DA46129BC6BE300FFD322 /* InstallationUnit */ = {
+			isa = PBXGroup;
+			children = (
+				9433410329BA019C002DFBA7 /* InstallationUnitData.swift */,
+				944DA46229BC6BF800FFD322 /* IdleTimerInstallationUnit.swift */,
+				944DA46429BC883000FFD322 /* InitRecordingInstallationUnit.swift */,
+			);
+			path = InstallationUnit;
+			sourceTree = "<group>";
+		};
 		947075AA29A8F61F000508B3 /* EachTableCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,14 +113,6 @@
 				9478069F29AB633600CB8A64 /* SettingsToggleTableCellView.swift */,
 			);
 			path = SettingsTableCells;
-			sourceTree = "<group>";
-		};
-		9478069929AB61C500CB8A64 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				9470759A29A76142000508B3 /* SettingsViewController.swift */,
-			);
-			path = Settings;
 			sourceTree = "<group>";
 		};
 		9478069A29AB62E900CB8A64 /* Nibs */ = {
@@ -153,11 +159,11 @@
 		94ED290C29A750E600111C8F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				944DA46129BC6BE300FFD322 /* InstallationUnit */,
 				947075A429A8E7F8000508B3 /* StorageModel.swift */,
 				947075A629A8EC4A000508B3 /* AppropriateFormats.swift */,
 				94F8975229A93D9A00855A67 /* RecEngineModel.swift */,
 				943340FF29B91CA2002DFBA7 /* SettingsModel.swift */,
-				9433410329BA019C002DFBA7 /* InstallationUnitData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -165,12 +171,12 @@
 		94ED290D29A750FF00111C8F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				9478069929AB61C500CB8A64 /* Settings */,
 				9470759229A75DB8000508B3 /* TabBarController.swift */,
 				9470759429A75F4F000508B3 /* HomeViewController.swift */,
 				9470759629A75F81000508B3 /* SearchViewController.swift */,
 				9470759829A75FDA000508B3 /* RecordViewController.swift */,
 				9470759C29A762BB000508B3 /* HistoryViewController.swift */,
+				9470759A29A76142000508B3 /* SettingsViewController.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -282,10 +288,12 @@
 				9470759929A75FDA000508B3 /* RecordViewController.swift in Sources */,
 				94ED28FB29A750D000111C8F /* SceneDelegate.swift in Sources */,
 				9433410429BA019C002DFBA7 /* InstallationUnitData.swift in Sources */,
+				944DA46529BC883000FFD322 /* InitRecordingInstallationUnit.swift in Sources */,
 				9470759529A75F4F000508B3 /* HomeViewController.swift in Sources */,
 				9433410229B92136002DFBA7 /* SettingsCellViewInterface.swift in Sources */,
 				947075A129A77C45000508B3 /* CommonLabelSettings.swift in Sources */,
 				9470759D29A762BB000508B3 /* HistoryViewController.swift in Sources */,
+				944DA46329BC6BF800FFD322 /* IdleTimerInstallationUnit.swift in Sources */,
 				947806A229AB676300CB8A64 /* TODO List.swift in Sources */,
 				947806A029AB633600CB8A64 /* SettingsToggleTableCellView.swift in Sources */,
 			);

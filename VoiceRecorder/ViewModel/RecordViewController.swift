@@ -9,11 +9,12 @@ import UIKit
 import AVFoundation
 
 
-class RecordViewController: UIViewController, AVAudioRecorderDelegate, RecorderDelegate {
+class RecordViewController: UIViewController {
     
     // MARK: Initializing
     
     private let recEngineModel = (UIApplication.shared.delegate as! AppDelegate).recEngineModel
+    private let settingsModel = (UIApplication.shared.delegate as! AppDelegate).settingsModel
     private let recordView = RecordView(
         startRecordingSelector: #selector(startRecordingFuncCoverage),
         playpauseRecordingSelector: #selector(playpauseRecordingCoverage)
@@ -24,6 +25,10 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate, RecorderD
         self.view = recordView
         recEngineModel.setupRecorderDelegate(self)
     }
+    
+}
+
+extension RecordViewController: AVAudioRecorderDelegate, RecorderDelegate {
     
     // MARK: - AV Recorder Delegate
     
@@ -46,10 +51,14 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate, RecorderD
     
     internal func recordingDidStart() {
         recordView.startRecording()
+        if settingsModel.settings[1].value {
+            recEngineModel.startPlaying(file: SettingsModel.recordingInitAudioURL)
+        }
     }
     
     internal func recordingDidEnd() {
         recordView.stopRecording()
+        recEngineModel.stopPlaying()
     }
     
     internal func recordingCurrentTiming(_ timing: String) {
@@ -58,6 +67,7 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate, RecorderD
     
     internal func recordingDidPauseed() {
         recordView.pauseRecording()
+        recEngineModel.stopPlaying()
     }
     
     internal func recordingDidContinued() {
@@ -65,3 +75,24 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate, RecorderD
     }
     
 }
+
+extension RecordViewController: AVAudioPlayerDelegate, PlayerDelegate {
+    
+    // MARK: - AV Player Delegate
+    
+    internal func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        recEngineModel.stopPlaying()
+    }
+    
+    // MARK: - Player Delegate
+    
+    internal func playerDidStart() {
+        
+    }
+    
+    internal func playerDidEnd() {
+        
+    }
+    
+}
+

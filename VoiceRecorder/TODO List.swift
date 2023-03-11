@@ -22,18 +22,14 @@
 
 // MARK: - Settings VC
 
-// TODO: this
-//
 // microphone adjustment (?)
 // recording quality (?)
 // choose format
-// add outer file
-//
-// don't allow standby mode
-// "your voice is recording" phrase
+// TODO: add outer file
 
 
 // MARK: - Each Table Cell
 
-// TODO: separated screen
-// TODO: slider on playing audio
+// TODO: delete recording
+// separated screen
+// slider on playing audio

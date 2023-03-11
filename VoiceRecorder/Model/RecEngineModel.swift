@@ -63,7 +63,9 @@ class RecEngineModel {
 
     private func getFileUrl(byName filename: String) -> URL {
         let documentsDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let filePath = documentsDir.appendingPathComponent(filename)
+        let filePath = documentsDir
+            .appendingPathComponent(SettingsModel.audiosDirectoryName, conformingTo: .directory)
+            .appendingPathComponent(filename)
         return filePath
     }
     
@@ -153,8 +155,8 @@ class RecEngineModel {
         }
         
         audioRecorder.stop()
-        audioRecorder = nil
         meterTimer.invalidate()
+        audioRecorder = nil
         isRecording = false
         
         (UIApplication.shared.delegate as? AppDelegate)?.reloadAppData()
@@ -170,6 +172,61 @@ class RecEngineModel {
             isPausedRecording = true
             audioRecorder.pause()
             recorderDelegate?.recordingDidPauseed()
+        }
+    }
+    
+    // MARK: Merge recording with "Recording Init Audio" (unused)
+    
+    private func mergeRecordingWithRecInit(forURL recordingURL: URL) async {
+        // Recording track
+        let recAsset = AVURLAsset(url: recordingURL)
+        let recTrack: AVAssetTrack
+        let originTimeRange: CMTimeRange
+        do {
+            recTrack = try await recAsset.loadTracks(withMediaType: .audio)[0]
+            originTimeRange = await CMTimeRange(
+                start: .zero,
+                duration: try recTrack.load(.timeRange).duration
+            )
+        } catch {
+            fatalError(error.localizedDescription)
+        }
+        
+        // Init track
+        let initAsset = AVURLAsset(url: SettingsModel.recordingInitAudioURL)
+        let initTrack: AVAssetTrack
+        do {
+            initTrack = try await initAsset.loadTracks(withMediaType: .audio)[0]
+        } catch {
+            fatalError(error.localizedDescription)
+        }
+        
+        // Make composition
+        let composition = AVMutableComposition()
+        guard
+            let recAVComposition = composition.addMutableTrack(
+                withMediaType: .audio,
+                preferredTrackID: CMPersistentTrackID()),
+            let initAVComposition = composition.addMutableTrack(
+                withMediaType: .audio,
+                preferredTrackID: CMPersistentTrackID())
+        else {
+            fatalError("Unable to instantiate AVMutableCompositionTrack")
+        }
+        do {
+            try recAVComposition.insertTimeRange(originTimeRange, of: recTrack, at: .zero)
+            try initAVComposition.insertTimeRange(originTimeRange, of: initTrack, at: .zero)
+        } catch {
+            fatalError(error.localizedDescription)
+        }
+
+        // Export
+        let assetExport = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetAppleM4A)!
+        assetExport.outputFileType = .m4a
+        assetExport.outputURL = getFileUrl(byName: recordingURL.lastPathComponent)
+        await assetExport.export()
+        if let error = assetExport.error {
+            print(error.localizedDescription)
         }
     }
     
@@ -200,11 +257,10 @@ class RecEngineModel {
     }
     
     public func stopPlaying() {
-        if isPlaying {
-            audioPlayer.stop()
-            playerDelegate?.playerDidEnd()
-            isPlaying = false
-        }
+        guard isPlaying else { return }
+        audioPlayer.stop()
+        playerDelegate?.playerDidEnd()
+        isPlaying = false
     }
     
 }

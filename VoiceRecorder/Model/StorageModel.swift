@@ -71,9 +71,10 @@ class StorageModel {
         
         let documentsDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         print("Document directory: \(documentsDir.absoluteString)")
+        let audiosDir = documentsDir.appendingPathComponent(SettingsModel.audiosDirectoryName, conformingTo: .directory)
         let allFiles: [URL]
         do {
-            allFiles = try FileManager.default.contentsOfDirectory(at: documentsDir, includingPropertiesForKeys: nil)
+            allFiles = try FileManager.default.contentsOfDirectory(at: audiosDir, includingPropertiesForKeys: nil)
         } catch {
             fatalError(error.localizedDescription)
         }
