@@ -70,22 +70,22 @@ class SettingsModel {
     
     public lazy var mainTableCells: [MainTableCell] = [
         .init(name: "Microphone adjustment", sectionNum: 0, iconName: "sf.music.mic", stateValue: false, action: { state in
-            let alert = UIAlertController(title: "Settings", message: "Pressed 'Microphone adjustment' with state \(state)", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Settings", message: "The 'Microphone adjustment' is not implemented yet", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel))
             return alert
         }),
         .init(name: "Recording quality", sectionNum: 0, iconName: "sf.recordingtape.circle.fill", stateValue: false, action: { state in
-            let alert = UIAlertController(title: "Settings", message: "Pressed 'Recording quality' with state \(state)", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Settings", message: "The 'Recording quality' is not implemented yet", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel))
             return alert
         }),
         .init(name: "Choose format", sectionNum: 0, iconName: "sf.doc.badge.gearshape.fill", stateValue: false, action: { state in
-            let alert = UIAlertController(title: "Settings", message: "Pressed 'Choose format' with state \(state)", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Settings", message: "The 'Choose format' is not implemented yet", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel))
             return alert
         }),
         .init(name: "Add outer file", sectionNum: 0, iconName: "sf.tray.and.arrow.down.fill", stateValue: false, action: { state in
-            let alert = UIAlertController(title: "Settings", message: "Pressed 'Add outer file' with state \(state)", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Settings", message: "The 'Add outer file' is not implemented yet", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel))
             return alert
         }),

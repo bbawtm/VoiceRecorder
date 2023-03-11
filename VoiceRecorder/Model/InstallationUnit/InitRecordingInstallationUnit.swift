@@ -41,7 +41,7 @@ class InitRecordingInstallationUnit: InstallationUnitProtocol {
     required public init() {}
     
     public lazy var mainTableCell = SettingsModel.MainTableCell(
-        name: "\"Your voice is recording\" phrase",
+        name: "Recording warning",
         sectionNum: 1,
         iconName: "sf.ear.fill",
         stateValue: value,
