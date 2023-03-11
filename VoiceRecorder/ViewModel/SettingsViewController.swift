@@ -24,6 +24,8 @@ class SettingsViewController: UITableViewController {
             UINib(nibName: "SettingsToggleTableCellNib", bundle: .main),
             forCellReuseIdentifier: "SettingsToggleTableCell"
         )
+        
+        (UIApplication.shared.delegate as! AppDelegate).linkSettingsVC(self)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -78,3 +80,25 @@ class SettingsViewController: UITableViewController {
     }
     
 }
+
+extension SettingsViewController: UIDocumentPickerDelegate {
+    
+    internal func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        let loadedCount = AudioPickerInstallationUnit.uploadFiles(urls)
+        
+        let alertText, alertMessage: String
+        if loadedCount == urls.count {
+            alertText = "Done"
+            alertMessage = "\(loadedCount) audio file(s) were uploaded."
+        } else {
+            alertText = "Error"
+            alertMessage = "\(loadedCount) audio file(s) were not uploaded."
+        }
+        
+        let alert = UIAlertController(title: alertText, message: alertMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        self.present(alert, animated: true)
+    }
+    
+}
+

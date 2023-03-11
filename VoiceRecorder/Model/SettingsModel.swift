@@ -26,6 +26,7 @@ class SettingsModel {
     )!
     
     public let settings: [InstallationUnitProtocol] = [
+        AudioPickerInstallationUnit(),
         IdleTimerInstallationUnit(),
         InitRecordingInstallationUnit()
     ]
@@ -81,11 +82,6 @@ class SettingsModel {
         }),
         .init(name: "Choose format", sectionNum: 0, iconName: "sf.doc.badge.gearshape.fill", stateValue: false, action: { state in
             let alert = UIAlertController(title: "Settings", message: "The 'Choose format' is not implemented yet", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel))
-            return alert
-        }),
-        .init(name: "Add outer file", sectionNum: 0, iconName: "sf.tray.and.arrow.down.fill", stateValue: false, action: { state in
-            let alert = UIAlertController(title: "Settings", message: "The 'Add outer file' is not implemented yet", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel))
             return alert
         }),

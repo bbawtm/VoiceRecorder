@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private var searchVC: SearchViewController?
     private var historyVC: HistoryViewController?
+    private var settingsVC: SettingsViewController?
     
     // Reload all data method
     public func reloadAppData() {
@@ -39,6 +40,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     public func linkHistoryVC(_ historyVC: HistoryViewController) {
         self.historyVC = historyVC
+    }
+    
+    public func linkSettingsVC(_ settingsVC: SettingsViewController) {
+        self.settingsVC = settingsVC
+    }
+    
+    public func getSettingsVC() -> SettingsViewController? {
+        self.settingsVC
     }
 
     // MARK: UISceneSession Lifecycle

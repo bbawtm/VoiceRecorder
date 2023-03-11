@@ -2,7 +2,7 @@
 //  InitRecordingInstallationUnit.swift
 //  VoiceRecorder
 //
-//  Created by Вадим Попов on 11.03.2023.
+//  Created by Vadim Popov on 11.03.2023.
 //
 
 import UIKit
