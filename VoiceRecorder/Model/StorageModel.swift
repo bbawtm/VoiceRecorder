@@ -25,6 +25,10 @@ class StorageModel {
             self.size = size
             self.time = time
         }
+        
+        public func deleteContents() -> Bool {
+            return (try? FileManager.default.removeItem(at: self.url)) != nil
+        }
     }
     
     // All stored audio files
@@ -106,6 +110,13 @@ class StorageModel {
     
     public func search(withPhrase phrase: String) -> [AudioFile] {
         self.allAudio.filter { $0.title.localizedCaseInsensitiveContains(phrase) }
+    }
+    
+    public func delete(file: AudioFile) -> Bool {
+        allAudio = allAudio.filter { $0.url != file.url }
+        dateMapContents = nil
+        dateOrderContents = nil
+        return file.deleteContents()
     }
     
     // MARK: - Private

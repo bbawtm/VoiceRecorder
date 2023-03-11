@@ -30,6 +30,5 @@
 
 // MARK: - Each Table Cell
 
-// TODO: delete recording
 // separated screen
 // slider on playing audio

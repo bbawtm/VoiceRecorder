@@ -71,26 +71,32 @@ class HistoryViewController: UITableViewController, PlayerDelegate, AVAudioPlaye
         return ""
     }
     
+    private func getModel(forIndex indexPath: IndexPath) -> StorageModel.AudioFile? {
+        guard 0 <= indexPath.section && indexPath.section < storageModel.dateOrder.count else {
+            print("IndexPath.section index error")
+            return nil
+        }
+        let sectionName = storageModel.dateOrder[indexPath.section]
+        guard let indexes = storageModel.dateMap[sectionName] else {
+            print("Cannot get indexes array")
+            return nil
+        }
+        guard 0 <= indexPath.row && indexPath.row < indexes.count else {
+            print("IndexPath.row index error")
+            return nil
+        }
+        let currentIndex = indexes[indexPath.row]
+        return storageModel.allAudio[currentIndex]
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryTableCell") as? EachTableCellView else {
             print("Unknown cell type")
             return UITableViewCell()
         }
-        guard 0 <= indexPath.section && indexPath.section < storageModel.dateOrder.count else {
-            print("IndexPath.section index error")
+        guard let model = getModel(forIndex: indexPath) else {
             return UITableViewCell()
         }
-        let sectionName = storageModel.dateOrder[indexPath.section]
-        guard let indexes = storageModel.dateMap[sectionName] else {
-            print("Cannot get indexes array")
-            return UITableViewCell()
-        }
-        guard 0 <= indexPath.row && indexPath.row < indexes.count else {
-            print("IndexPath.row index error")
-            return UITableViewCell()
-        }
-        let currentIndex = indexes[indexPath.row]
-        let model = storageModel.allAudio[currentIndex]
         cell.configure(forAudioFile: model) {
             if self.currentPlayingCell != nil {
                 self.recEngineModel.stopPlaying()
@@ -102,6 +108,24 @@ class HistoryViewController: UITableViewController, PlayerDelegate, AVAudioPlaye
         }
         return cell
     }
+    
+    override func tableView(
+        _ tableView: UITableView,
+        commit editingStyle: UITableViewCell.EditingStyle,
+        forRowAt indexPath: IndexPath
+    ) {
+        if editingStyle == .delete {
+            if let model = getModel(forIndex: indexPath), storageModel.delete(file: model) {
+                tableView.beginUpdates()
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                tableView.endUpdates()
+                nothingToShowLabel.isHidden = !storageModel.allAudio.isEmpty
+            } else {
+                // error
+            }
+        }
+    }
+        
     
     // MARK: - AV Player Delegate
     

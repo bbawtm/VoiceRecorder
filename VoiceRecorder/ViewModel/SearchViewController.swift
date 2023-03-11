@@ -100,6 +100,29 @@ class SearchViewController: UITableViewController, UISearchBarDelegate, PlayerDe
         return cell
     }
     
+    override func tableView(
+        _ tableView: UITableView,
+        commit editingStyle: UITableViewCell.EditingStyle,
+        forRowAt indexPath: IndexPath
+    ) {
+        guard 0 <= indexPath.item && indexPath.item < currentManagingFiles.count else {
+            print("IndexPath.item index error")
+            return
+        }
+        if editingStyle == .delete {
+            let model = currentManagingFiles[indexPath.item]
+            if storageModel.delete(file: model) {
+                currentManagingFiles.remove(at: indexPath.item)
+                tableView.beginUpdates()
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                tableView.endUpdates()
+                nothingToShowLabel.isHidden = !currentManagingFiles.isEmpty
+            } else {
+                // error
+            }
+        }
+    }
+    
     // MARK: - Search Bar
     
     internal func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
