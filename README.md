@@ -7,5 +7,8 @@ Voice recording application. The goal is to reflect the basic skills of iOS app 
 * **Realm** database to save settings (it might have been worth using UserDefaults, but there are bugs with caches).
 * **MVVM** pattern & **SOLID-based** architecture.
 
+## Simulator Screen Recording
+<video src='https://disk.yandex.ru/i/afGc6LPfK2qxog'/>
+
 ## Author
 Vadim Popov, [Telegram](https://t.me/vadim_o_popov), me@vadimpopov.ru.
