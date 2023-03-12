@@ -30,6 +30,5 @@
 
 // MARK: - Each Table Cell
 
-// TODO: delete section, if it became empty
 // separated screen (rename audio)
 // slider on playing audio

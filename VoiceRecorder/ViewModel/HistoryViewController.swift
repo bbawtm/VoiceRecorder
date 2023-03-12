@@ -73,7 +73,6 @@ class HistoryViewController: UITableViewController, PlayerDelegate, AVAudioPlaye
     
     private func getModel(forIndex indexPath: IndexPath) -> StorageModel.AudioFile? {
         guard 0 <= indexPath.section && indexPath.section < storageModel.dateOrder.count else {
-            print("IndexPath.section index error")
             return nil
         }
         let sectionName = storageModel.dateOrder[indexPath.section]
@@ -82,7 +81,6 @@ class HistoryViewController: UITableViewController, PlayerDelegate, AVAudioPlaye
             return nil
         }
         guard 0 <= indexPath.row && indexPath.row < indexes.count else {
-            print("IndexPath.row index error")
             return nil
         }
         let currentIndex = indexes[indexPath.row]
@@ -115,9 +113,13 @@ class HistoryViewController: UITableViewController, PlayerDelegate, AVAudioPlaye
         forRowAt indexPath: IndexPath
     ) {
         if editingStyle == .delete {
+            let rowsNum = self.tableView(tableView, numberOfRowsInSection: indexPath.section)
             if let model = getModel(forIndex: indexPath), storageModel.delete(file: model) {
                 tableView.beginUpdates()
                 tableView.deleteRows(at: [indexPath], with: .automatic)
+                if rowsNum <= 1 {
+                    tableView.deleteSections([indexPath.section], with: .automatic)
+                }
                 tableView.endUpdates()
                 nothingToShowLabel.isHidden = !storageModel.allAudio.isEmpty
             } else {
