@@ -11,14 +11,14 @@ import AVFoundation
 
 class HistoryViewController: UITableViewController, PlayerDelegate, AVAudioPlayerDelegate {
     
-    private let storageModel = (UIApplication.shared.delegate as! AppDelegate).storageModel
-    private let recEngineModel = (UIApplication.shared.delegate as! AppDelegate).recEngineModel
+    private let storageModel = coreRouter!.storageModel
+    private let recEngineModel = coreRouter!.recEngineModel
     
     private var currentPlayingCell: EachTableCellView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        (UIApplication.shared.delegate as? AppDelegate)?.linkHistoryVC(self)
+        coreRouter!.linkHistoryVC(self)
         
         tableView.backgroundColor = UIColor(named: "appDark")
         tableView.register(UINib(nibName: "EachTableCellNib", bundle: .main), forCellReuseIdentifier: "HistoryTableCell")

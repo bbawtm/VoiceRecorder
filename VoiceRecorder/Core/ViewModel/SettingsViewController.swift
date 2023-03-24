@@ -10,7 +10,7 @@ import UIKit
 
 class SettingsViewController: UITableViewController {
     
-    let settingsModel = (UIApplication.shared.delegate as! AppDelegate).settingsModel
+    let settingsModel = coreRouter!.settingsModel
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ class SettingsViewController: UITableViewController {
             forCellReuseIdentifier: "SettingsToggleTableCell"
         )
         
-        (UIApplication.shared.delegate as! AppDelegate).linkSettingsVC(self)
+        coreRouter!.linkSettingsVC(self)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

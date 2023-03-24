@@ -6,48 +6,15 @@
 //
 
 import UIKit
+import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
         return true
-    }
-    
-    // MARK: Application-specified objects
-    
-    public let storageModel = StorageModel()
-    public let recEngineModel = RecEngineModel()
-    public let settingsModel = SettingsModel()
-    
-    private var searchVC: SearchViewController?
-    private var historyVC: HistoryViewController?
-    private var settingsVC: SettingsViewController?
-    
-    // Reload all data method
-    public func reloadAppData() {
-        storageModel.validateModel()
-        searchVC?.tableView.reloadData()
-        historyVC?.tableView.reloadData()
-    }
-    
-    // Link 'Data' View Controllers
-    
-    public func linkSearchVC(_ searchVC: SearchViewController) {
-        self.searchVC = searchVC
-    }
-    
-    public func linkHistoryVC(_ historyVC: HistoryViewController) {
-        self.historyVC = historyVC
-    }
-    
-    public func linkSettingsVC(_ settingsVC: SettingsViewController) {
-        self.settingsVC = settingsVC
-    }
-    
-    public func getSettingsVC() -> SettingsViewController? {
-        self.settingsVC
     }
 
     // MARK: UISceneSession Lifecycle

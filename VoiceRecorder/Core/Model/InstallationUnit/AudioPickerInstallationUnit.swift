@@ -34,7 +34,7 @@ class AudioPickerInstallationUnit: InstallationUnitProtocol {
     
     private lazy var audioPicker = {
         let picker = UIDocumentPickerViewController(forOpeningContentTypes: [.audio])
-        picker.delegate = (UIApplication.shared.delegate as! AppDelegate).getSettingsVC()
+        picker.delegate = coreRouter!.getSettingsVC()
         picker.allowsMultipleSelection = true
         return picker
     }()
@@ -56,7 +56,7 @@ class AudioPickerInstallationUnit: InstallationUnitProtocol {
             loadedCount += 1
         }
         if loadedCount > 0 {
-            (UIApplication.shared.delegate as? AppDelegate)?.reloadAppData()
+            coreRouter?.reloadAppData()
         }
         return loadedCount
     }

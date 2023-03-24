@@ -65,6 +65,7 @@
 		94F4055329CD81AB00322CB0 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 94F4055229CD81AB00322CB0 /* FirebaseRemoteConfigSwift */; };
 		94F4055529CD81AB00322CB0 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 94F4055429CD81AB00322CB0 /* FirebaseStorage */; };
 		94F4055729CD81AB00322CB0 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 94F4055629CD81AB00322CB0 /* FirebaseStorageCombine-Community */; };
+		94F4055A29CD85FA00322CB0 /* CoreRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F4055929CD85FA00322CB0 /* CoreRouter.swift */; };
 		94F8975329A93D9A00855A67 /* RecEngineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F8975229A93D9A00855A67 /* RecEngineModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,7 @@
 		94ED290429A750D000111C8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94ED290629A750D000111C8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94F4051F29CD7FF500322CB0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		94F4055929CD85FA00322CB0 /* CoreRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreRouter.swift; sourceTree = "<group>"; };
 		94F8975229A93D9A00855A67 /* RecEngineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecEngineModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -202,16 +204,14 @@
 		94ED28F729A750D000111C8F /* VoiceRecorder */ = {
 			isa = PBXGroup;
 			children = (
-				94ED290E29A7510600111C8F /* View */,
-				94ED290D29A750FF00111C8F /* ViewModel */,
-				94ED290C29A750E600111C8F /* Model */,
+				94F4055829CD858D00322CB0 /* Core */,
 				94ED28F829A750D000111C8F /* AppDelegate.swift */,
 				94ED28FA29A750D000111C8F /* SceneDelegate.swift */,
+				947806A129AB676300CB8A64 /* TODO List.swift */,
 				94ED290329A750D000111C8F /* LaunchScreen.storyboard */,
 				94ED290129A750D000111C8F /* Assets.xcassets */,
 				94ED290629A750D000111C8F /* Info.plist */,
 				94F4051F29CD7FF500322CB0 /* GoogleService-Info.plist */,
-				947806A129AB676300CB8A64 /* TODO List.swift */,
 			);
 			path = VoiceRecorder;
 			sourceTree = "<group>";
@@ -251,6 +251,17 @@
 				947075A229A8CA7C000508B3 /* RecordView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		94F4055829CD858D00322CB0 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				94ED290E29A7510600111C8F /* View */,
+				94ED290D29A750FF00111C8F /* ViewModel */,
+				94ED290C29A750E600111C8F /* Model */,
+				94F4055929CD85FA00322CB0 /* CoreRouter.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,6 +378,7 @@
 				9470759729A75F81000508B3 /* SearchViewController.swift in Sources */,
 				9470759329A75DB8000508B3 /* TabBarController.swift in Sources */,
 				947075A529A8E7F8000508B3 /* StorageModel.swift in Sources */,
+				94F4055A29CD85FA00322CB0 /* CoreRouter.swift in Sources */,
 				947075A329A8CA7C000508B3 /* RecordView.swift in Sources */,
 				947075A729A8EC4A000508B3 /* AppropriateFormats.swift in Sources */,
 				9478069829AB618800CB8A64 /* SettingsLinkTableCellView.swift in Sources */,

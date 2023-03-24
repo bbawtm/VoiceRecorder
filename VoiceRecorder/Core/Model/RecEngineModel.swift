@@ -159,7 +159,7 @@ class RecEngineModel {
         audioRecorder = nil
         isRecording = false
         
-        (UIApplication.shared.delegate as? AppDelegate)?.reloadAppData()
+        coreRouter?.reloadAppData()
     }
     
     public func pauseRecording() {

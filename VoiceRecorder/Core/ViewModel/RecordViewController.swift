@@ -13,8 +13,8 @@ class RecordViewController: UIViewController {
     
     // MARK: Initializing
     
-    private let recEngineModel = (UIApplication.shared.delegate as! AppDelegate).recEngineModel
-    private let settingsModel = (UIApplication.shared.delegate as! AppDelegate).settingsModel
+    private let recEngineModel = coreRouter!.recEngineModel
+    private let settingsModel = coreRouter!.settingsModel
     private let recordView = RecordView(
         startRecordingSelector: #selector(startRecordingFuncCoverage),
         playpauseRecordingSelector: #selector(playpauseRecordingCoverage)

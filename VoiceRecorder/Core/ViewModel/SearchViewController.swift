@@ -11,15 +11,15 @@ import AVFoundation
 
 class SearchViewController: UITableViewController, UISearchBarDelegate, PlayerDelegate, AVAudioPlayerDelegate {
     
-    private let storageModel = (UIApplication.shared.delegate as! AppDelegate).storageModel
-    private let recEngineModel = (UIApplication.shared.delegate as! AppDelegate).recEngineModel
+    private let storageModel = coreRouter!.storageModel
+    private let recEngineModel = coreRouter!.recEngineModel
     
     private var currentManagingFiles: [StorageModel.AudioFile] = []
     private weak var currentPlayingCell: EachTableCellView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        (UIApplication.shared.delegate as? AppDelegate)?.linkSearchVC(self)
+        coreRouter!.linkSearchVC(self)
         
         searchBar.delegate = self
         navigationItem.titleView = searchBar
