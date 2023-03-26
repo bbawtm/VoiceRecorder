@@ -6,6 +6,7 @@
 //
 
 // TODO: adaptive theme
+// TODO: firebase services
 
 // MARK: - Home VC
 
@@ -32,3 +33,8 @@
 
 // separated screen (rename audio)
 // slider on playing audio
+
+
+// MARK: - Tests
+
+// TODO this

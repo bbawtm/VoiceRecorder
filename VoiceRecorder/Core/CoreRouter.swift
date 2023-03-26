@@ -8,6 +8,9 @@
 import UIKit
 
 
+// MARK: To load Core, the CoreRouter and TabBarController must be loaded.
+
+
 var coreRouter: CoreRouter? = nil
 
 class CoreRouter {
