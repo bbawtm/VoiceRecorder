@@ -80,9 +80,11 @@ class AuthLoginView: UIView {
         return button
     }()
     
-    public init() {
+    public init(_ gotoSignUp: Selector) {
         super.init(frame: .zero)
         backgroundColor = UIColor(named: "appDark")
+        
+        gotoSignUpButton.addTarget(nil, action: gotoSignUp, for: .touchUpInside)
         
         addSubview(topIconView)
         addSubview(titleText)

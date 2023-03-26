@@ -35,10 +35,10 @@
 		948B4FEC29CEDFE400ED1F3B /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948B4FEB29CEDFE400ED1F3B /* UserModel.swift */; };
 		948B4FF029CEE42100ED1F3B /* AuthLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948B4FEF29CEE42100ED1F3B /* AuthLogInViewController.swift */; };
 		948B4FF229CEE45500ED1F3B /* AuthSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948B4FF129CEE45500ED1F3B /* AuthSignUpViewController.swift */; };
-		948B4FF429D0312600ED1F3B /* AuthNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948B4FF329D0312600ED1F3B /* AuthNavViewController.swift */; };
 		948B4FF629D033D100ED1F3B /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948B4FF529D033D100ED1F3B /* CustomTextFieldView.swift */; };
 		948B4FF829D0366E00ED1F3B /* AuthLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948B4FF729D0366E00ED1F3B /* AuthLoginView.swift */; };
 		948B4FFA29D0382300ED1F3B /* AuthSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948B4FF929D0382300ED1F3B /* AuthSignUpView.swift */; };
+		948B4FFC29D05B6300ED1F3B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 948B4FFB29D05B6300ED1F3B /* README.md */; };
 		94ED28F929A750D000111C8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ED28F829A750D000111C8F /* AppDelegate.swift */; };
 		94ED28FB29A750D000111C8F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ED28FA29A750D000111C8F /* SceneDelegate.swift */; };
 		94ED290229A750D000111C8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94ED290129A750D000111C8F /* Assets.xcassets */; };
@@ -105,10 +105,10 @@
 		948B4FEB29CEDFE400ED1F3B /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		948B4FEF29CEE42100ED1F3B /* AuthLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLogInViewController.swift; sourceTree = "<group>"; };
 		948B4FF129CEE45500ED1F3B /* AuthSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSignUpViewController.swift; sourceTree = "<group>"; };
-		948B4FF329D0312600ED1F3B /* AuthNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNavViewController.swift; sourceTree = "<group>"; };
 		948B4FF529D033D100ED1F3B /* CustomTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldView.swift; sourceTree = "<group>"; };
 		948B4FF729D0366E00ED1F3B /* AuthLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLoginView.swift; sourceTree = "<group>"; };
 		948B4FF929D0382300ED1F3B /* AuthSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSignUpView.swift; sourceTree = "<group>"; };
+		948B4FFB29D05B6300ED1F3B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		94ED28F529A750D000111C8F /* VoiceRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94ED28F829A750D000111C8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94ED28FA29A750D000111C8F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -207,14 +207,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		948B4FE929CEDFD100ED1F3B /* ViewModel */ = {
+		948B4FE929CEDFD100ED1F3B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				948B4FEF29CEE42100ED1F3B /* AuthLogInViewController.swift */,
 				948B4FF129CEE45500ED1F3B /* AuthSignUpViewController.swift */,
-				948B4FF329D0312600ED1F3B /* AuthNavViewController.swift */,
 			);
-			path = ViewModel;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		948B4FEA29CEDFD800ED1F3B /* View */ = {
@@ -230,6 +229,7 @@
 		94ED28EC29A750CF00111C8F = {
 			isa = PBXGroup;
 			children = (
+				948B4FFB29D05B6300ED1F3B /* README.md */,
 				94ED28F729A750D000111C8F /* VoiceRecorder */,
 				94ED28F629A750D000111C8F /* Products */,
 			);
@@ -271,7 +271,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		94ED290D29A750FF00111C8F /* ViewModel */ = {
+		94ED290D29A750FF00111C8F /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				9470759229A75DB8000508B3 /* TabBarController.swift */,
@@ -281,7 +281,7 @@
 				9470759C29A762BB000508B3 /* HistoryViewController.swift */,
 				9470759A29A76142000508B3 /* SettingsViewController.swift */,
 			);
-			path = ViewModel;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		94ED290E29A7510600111C8F /* View */ = {
@@ -300,7 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				94ED290E29A7510600111C8F /* View */,
-				94ED290D29A750FF00111C8F /* ViewModel */,
+				94ED290D29A750FF00111C8F /* ViewController */,
 				94ED290C29A750E600111C8F /* Model */,
 				94F4055929CD85FA00322CB0 /* CoreRouter.swift */,
 			);
@@ -311,7 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				948B4FEA29CEDFD800ED1F3B /* View */,
-				948B4FE929CEDFD100ED1F3B /* ViewModel */,
+				948B4FE929CEDFD100ED1F3B /* ViewController */,
 				948B4FE829CEDFC700ED1F3B /* Model */,
 			);
 			path = Auth;
@@ -413,6 +413,7 @@
 				9478069E29AB631300CB8A64 /* SettingsToggleTableCellNib.xib in Resources */,
 				94ED290529A750D000111C8F /* LaunchScreen.storyboard in Resources */,
 				9478069C29AB630800CB8A64 /* SettingsLinkTableCellNib.xib in Resources */,
+				948B4FFC29D05B6300ED1F3B /* README.md in Resources */,
 				94ED290229A750D000111C8F /* Assets.xcassets in Resources */,
 				947075A929A8F2F7000508B3 /* EachTableCellNib.xib in Resources */,
 				948B4FE729CDF0C300ED1F3B /* GoogleService-Info.plist in Resources */,
@@ -430,7 +431,6 @@
 				9433410029B91CA2002DFBA7 /* SettingsModel.swift in Sources */,
 				948B4FF029CEE42100ED1F3B /* AuthLogInViewController.swift in Sources */,
 				9470759729A75F81000508B3 /* SearchViewController.swift in Sources */,
-				948B4FF429D0312600ED1F3B /* AuthNavViewController.swift in Sources */,
 				9470759329A75DB8000508B3 /* TabBarController.swift in Sources */,
 				947075A529A8E7F8000508B3 /* StorageModel.swift in Sources */,
 				94F4055A29CD85FA00322CB0 /* CoreRouter.swift in Sources */,

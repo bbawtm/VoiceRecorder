@@ -12,7 +12,11 @@ class AuthSignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = AuthSignUpView()
+        view = AuthSignUpView(#selector(gotoLogIn))
+    }
+    
+    @objc public func gotoLogIn() {
+        self.view.window?.rootViewController = AuthLogInViewController()
     }
     
 }
