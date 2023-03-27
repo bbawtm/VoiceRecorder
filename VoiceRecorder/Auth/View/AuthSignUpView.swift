@@ -52,20 +52,35 @@ class AuthSignUpView: UIView {
         return lbl
     }()
     
-    public let usernameField: CustomTextFieldView = {
-        let lbl = CustomTextFieldView(label: "Username", placeholder: "Enter the username", contentType: UITextContentType.username)
+    public lazy var usernameField: CustomTextFieldView = {
+        let lbl = CustomTextFieldView(
+            label: "Username",
+            placeholder: "Enter the username",
+            contentType: UITextContentType.username
+        )
+        lbl.setChecker { self.usernameFieldChecker(sender: lbl)}
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
     
-    public let passwordField: CustomTextFieldView = {
-        let lbl = CustomTextFieldView(label: "Password", placeholder: "Enter the password", contentType: UITextContentType.password)
+    public lazy var passwordField: CustomTextFieldView = {
+        let lbl = CustomTextFieldView(
+            label: "Password",
+            placeholder: "Enter the password",
+            contentType: UITextContentType.password
+        )
+        lbl.setChecker { self.passwordFieldChecker(sender: lbl)}
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
     
-    public let secondPasswordField: CustomTextFieldView = {
-        let lbl = CustomTextFieldView(label: "Confirm password", placeholder: "Enter the password again", contentType: UITextContentType.password)
+    public lazy var secondPasswordField: CustomTextFieldView = {
+        let lbl = CustomTextFieldView(
+            label: "Confirm password",
+            placeholder: "Enter the password again",
+            contentType: UITextContentType.password
+        )
+        lbl.setChecker { self.secondPasswordFieldChecker(sender: lbl)}
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
@@ -133,6 +148,33 @@ class AuthSignUpView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func usernameFieldChecker(sender: CustomTextFieldView) {
+        let str = sender.getValue()
+        if str.count >= 1 && !str.contains(" ") {
+            sender.hideError()
+        } else {
+            sender.showError()
+        }
+    }
+    
+    private func passwordFieldChecker(sender: CustomTextFieldView) {
+        let str = sender.getValue()
+        if str.count >= 5 {
+            sender.hideError()
+        } else {
+            sender.showError()
+        }
+        secondPasswordFieldChecker(sender: secondPasswordField)
+    }
+    
+    private func secondPasswordFieldChecker(sender: CustomTextFieldView) {
+        if sender.getValue() == passwordField.getValue() {
+            sender.hideError()
+        } else {
+            sender.showError()
+        }
     }
     
 }

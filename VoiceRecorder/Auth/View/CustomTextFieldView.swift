@@ -92,7 +92,6 @@ class CustomTextFieldView : UIView {
     public convenience init(
         label labelText: String,
         placeholder placeholderText: String?,
-        _ selector: Selector? = nil,
         contentType: UITextContentType? = nil
     ) {
         self.init(frame: .zero)
@@ -101,9 +100,6 @@ class CustomTextFieldView : UIView {
         label.text = labelText
         
         field.placeholder = placeholderText
-        if let selector {
-            field.addTarget(nil, action: selector, for: .editingChanged)
-        }
         if let contentType {
             field.textContentType = contentType
             field.autocorrectionType = .no
@@ -140,6 +136,12 @@ class CustomTextFieldView : UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+    }
+    
+    public func setChecker(checker: @escaping () -> Void) {
+        field.addAction(UIAction { action in
+            checker()
+        }, for: .editingChanged)
     }
     
     public func usingDatePicker(selector: Selector) {

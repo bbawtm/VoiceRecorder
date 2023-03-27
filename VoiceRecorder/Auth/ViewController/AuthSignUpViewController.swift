@@ -56,6 +56,10 @@ class AuthSignUpViewController: UIViewController {
         guard let view = view as? AuthSignUpView else {
             fatalError("Wrong view type in SignUp")
         }
+        guard view.usernameField.isCorrect && view.passwordField.isCorrect && view.secondPasswordField.isCorrect else {
+            print("Fields error")
+            return
+        }
         removeAuthHandler()
         UserModel.logIn(email: view.usernameField.getValue(), password: view.passwordField.getValue())
     }
