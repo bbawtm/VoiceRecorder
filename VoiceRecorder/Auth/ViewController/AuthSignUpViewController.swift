@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseAuth
 
 
 class AuthSignUpViewController: UIViewController {
@@ -15,6 +18,36 @@ class AuthSignUpViewController: UIViewController {
         view = AuthSignUpView(#selector(enterButtonPressed), #selector(gotoLogIn))
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setAuthHandler()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        removeAuthHandler()
+    }
+    
+    // MARK: - Loading currently log-in'ed used
+    
+    private var logInHandle: AuthStateDidChangeListenerHandle? = nil
+    
+    private func setAuthHandler() {
+        logInHandle = Auth.auth().addStateDidChangeListener { auth, user in
+            if let user {
+                UserModel.setupModel(user)
+            } else {
+                print("No user found")
+            }
+        }
+    }
+    
+    private func removeAuthHandler() {
+        if let logInHandle {
+            Auth.auth().removeStateDidChangeListener(logInHandle)
+        }
+    }
+    
+    // MARK: - Button target actions
+    
     @objc public func gotoLogIn() {
         view.window?.rootViewController = AuthLogInViewController()
     }
@@ -23,6 +56,8 @@ class AuthSignUpViewController: UIViewController {
         guard let view = view as? AuthSignUpView else {
             fatalError("Wrong view type in SignUp")
         }
+        removeAuthHandler()
+        UserModel.logIn(email: view.usernameField.getValue(), password: view.passwordField.getValue())
     }
     
 }

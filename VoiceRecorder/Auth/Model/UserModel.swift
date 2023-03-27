@@ -15,7 +15,7 @@ class UserModel {
     
     private let fbUser: User
     
-    // Initializing only via LogIn / SignUp
+    // MARK: Initializing only via LogIn / SignUp
     
     public static func logIn(email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
@@ -32,9 +32,6 @@ class UserModel {
     }
     
     private static func setupModel(_ authResult: AuthDataResult?, _ error: Error?) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            fatalError("AppDelegate not found")
-        }
         if let error {
             print("Got error \(error.localizedDescription)")
             return
@@ -43,16 +40,23 @@ class UserModel {
             print("((")
             return
         }
-        let user = UserModel(authResult)
-        appDelegate.runCore(withUser: user)
+        setupModel(authResult.user)
+    }
+    
+    public static func setupModel(_ user: User) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            fatalError("AppDelegate not found")
+        }
+        let userModel = UserModel(user)
+        appDelegate.runCore(withUser: userModel)
     }
     
     public init() {
         fatalError("UserModel can not be empty")
     }
     
-    private init(_ authResult: AuthDataResult) {
-        self.fbUser = authResult.user
+    private init(_ user: User) {
+        self.fbUser = user
     }
     
 }
