@@ -161,7 +161,7 @@ class AuthSignUpView: UIView {
     
     private func passwordFieldChecker(sender: CustomTextFieldView) {
         let str = sender.getValue()
-        if str.count >= 5 {
+        if str.count >= 6 {
             sender.hideError()
         } else {
             sender.showError()

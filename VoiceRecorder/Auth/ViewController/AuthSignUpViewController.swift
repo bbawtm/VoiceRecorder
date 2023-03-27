@@ -34,8 +34,6 @@ class AuthSignUpViewController: UIViewController {
         logInHandle = Auth.auth().addStateDidChangeListener { auth, user in
             if let user {
                 UserModel.setupModel(user)
-            } else {
-                print("No user found")
             }
         }
     }
@@ -56,12 +54,28 @@ class AuthSignUpViewController: UIViewController {
         guard let view = view as? AuthSignUpView else {
             fatalError("Wrong view type in SignUp")
         }
-        guard view.emailField.isCorrect && view.passwordField.isCorrect && view.secondPasswordField.isCorrect else {
-            print("Fields error")
+        guard view.emailField.isCorrect else {
+            showAlert(title: "Error", message: "Email field is incorrect")
+            return
+        }
+        guard view.passwordField.isCorrect else {
+            showAlert(title: "Error", message: "Password field is incorrect")
+            return
+        }
+        guard view.secondPasswordField.isCorrect else {
+            showAlert(title: "Error", message: "Second password field is incorrect")
             return
         }
         removeAuthHandler()
-        UserModel.logIn(email: view.emailField.getValue(), password: view.passwordField.getValue())
+        UserModel.signUp(email: view.emailField.getValue(), password: view.passwordField.getValue())
+    }
+    
+    // MARK: Alerts
+    
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(.init(title: "OK", style: .cancel))
+        present(alert, animated: true)
     }
     
 }
