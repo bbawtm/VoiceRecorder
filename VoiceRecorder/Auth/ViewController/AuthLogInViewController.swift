@@ -23,11 +23,11 @@ class AuthLogInViewController: UIViewController {
         guard let view = view as? AuthLoginView else {
             fatalError("Wrong view type in LogIn")
         }
-        guard view.usernameField.isCorrect && view.passwordField.isCorrect else {
+        guard view.emailField.isCorrect && view.passwordField.isCorrect else {
             print("Fields error")
             return
         }
-        UserModel.logIn(email: view.usernameField.getValue(), password: view.passwordField.getValue())
+        UserModel.logIn(email: view.emailField.getValue(), password: view.passwordField.getValue())
     }
     
 }

@@ -52,13 +52,13 @@ class AuthSignUpView: UIView {
         return lbl
     }()
     
-    public lazy var usernameField: CustomTextFieldView = {
+    public lazy var emailField: CustomTextFieldView = {
         let lbl = CustomTextFieldView(
-            label: "Username",
-            placeholder: "Enter the username",
-            contentType: UITextContentType.username
+            label: "E-mail",
+            placeholder: "Enter the e-mail",
+            contentType: UITextContentType.emailAddress
         )
-        lbl.setChecker { self.usernameFieldChecker(sender: lbl)}
+        lbl.setChecker { self.emailFieldChecker(sender: lbl)}
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
@@ -110,7 +110,7 @@ class AuthSignUpView: UIView {
         
         addSubview(topIconView)
         addSubview(titleText)
-        addSubview(usernameField)
+        addSubview(emailField)
         addSubview(passwordField)
         addSubview(secondPasswordField)
         addSubview(confirmButton)
@@ -124,13 +124,13 @@ class AuthSignUpView: UIView {
             titleText.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             titleText.topAnchor.constraint(equalTo: topIconView.bottomAnchor, constant: 140),
             
-            usernameField.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor, constant: 16),
-            usernameField.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor, constant: -16),
-            usernameField.topAnchor.constraint(equalTo: titleText.bottomAnchor, constant: 40),
+            emailField.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor, constant: 16),
+            emailField.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor, constant: -16),
+            emailField.topAnchor.constraint(equalTo: titleText.bottomAnchor, constant: 40),
             
             passwordField.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor, constant: 16),
             passwordField.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor, constant: -16),
-            passwordField.topAnchor.constraint(equalTo: usernameField.bottomAnchor, constant: 30),
+            passwordField.topAnchor.constraint(equalTo: emailField.bottomAnchor, constant: 30),
             
             secondPasswordField.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor, constant: 16),
             secondPasswordField.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor, constant: -16),
@@ -150,9 +150,9 @@ class AuthSignUpView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func usernameFieldChecker(sender: CustomTextFieldView) {
+    private func emailFieldChecker(sender: CustomTextFieldView) {
         let str = sender.getValue()
-        if str.count >= 1 && !str.contains(" ") {
+        if str.count >= 1 && !str.contains(" ") && str.isValidEmail() {
             sender.hideError()
         } else {
             sender.showError()
@@ -177,4 +177,13 @@ class AuthSignUpView: UIView {
         }
     }
     
+}
+
+
+extension String {
+    public func isValidEmail() -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: self)
+    }
 }
