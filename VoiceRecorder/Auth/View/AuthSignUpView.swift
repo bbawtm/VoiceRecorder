@@ -52,20 +52,20 @@ class AuthSignUpView: UIView {
         return lbl
     }()
     
-    public let usernameField: UIView = {
-        let lbl = CustomTextFieldView(label: "Username", placeholder: "Enter your username", contentType: UITextContentType.username)
+    public let usernameField: CustomTextFieldView = {
+        let lbl = CustomTextFieldView(label: "Username", placeholder: "Enter the username", contentType: UITextContentType.username)
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
     
-    public let passwordField: UIView = {
-        let lbl = CustomTextFieldView(label: "Password", placeholder: "Enter your password", contentType: UITextContentType.password)
+    public let passwordField: CustomTextFieldView = {
+        let lbl = CustomTextFieldView(label: "Password", placeholder: "Enter the password", contentType: UITextContentType.password)
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
     
-    public let secondPasswordField: UIView = {
-        let lbl = CustomTextFieldView(label: "Confirm password", placeholder: "Enter your password again", contentType: UITextContentType.password)
+    public let secondPasswordField: CustomTextFieldView = {
+        let lbl = CustomTextFieldView(label: "Confirm password", placeholder: "Enter the password again", contentType: UITextContentType.password)
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
@@ -80,16 +80,17 @@ class AuthSignUpView: UIView {
     
     public let gotoLogInButton: UIButton = {
         let button = UIButton(configuration: .plain())
-        button.setTitle("Or Log In", for: .normal)
+        button.setTitle("or Log In", for: .normal)
         button.tintColor = .gray
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    public init(_ gotoLogIn: Selector) {
+    public init(_ enterButton: Selector, _ gotoLogIn: Selector) {
         super.init(frame: .zero)
         backgroundColor = UIColor(named: "appDark")
         
+        confirmButton.addTarget(nil, action: enterButton, for: .touchUpInside)
         gotoLogInButton.addTarget(nil, action: gotoLogIn, for: .touchUpInside)
         
         addSubview(topIconView)

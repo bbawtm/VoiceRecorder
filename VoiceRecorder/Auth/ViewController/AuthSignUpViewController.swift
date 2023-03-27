@@ -12,11 +12,17 @@ class AuthSignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = AuthSignUpView(#selector(gotoLogIn))
+        view = AuthSignUpView(#selector(enterButtonPressed), #selector(gotoLogIn))
     }
     
     @objc public func gotoLogIn() {
-        self.view.window?.rootViewController = AuthLogInViewController()
+        view.window?.rootViewController = AuthLogInViewController()
+    }
+    
+    @objc private func enterButtonPressed() {
+        guard let view = view as? AuthSignUpView else {
+            fatalError("Wrong view type in SignUp")
+        }
     }
     
 }

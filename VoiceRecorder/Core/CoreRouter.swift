@@ -17,6 +17,8 @@ class CoreRouter {
     
     // MARK: Application-specified objects
     
+    public let userModel: UserModel
+    
     public let storageModel = StorageModel()
     public let recEngineModel = RecEngineModel()
     public let settingsModel = SettingsModel()
@@ -24,6 +26,11 @@ class CoreRouter {
     private var searchVC: SearchViewController?
     private var historyVC: HistoryViewController?
     private var settingsVC: SettingsViewController?
+    
+    // Initializing
+    public init(user: UserModel) {
+        userModel = user
+    }
     
     // Reload all data method
     public func reloadAppData() {

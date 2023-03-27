@@ -30,6 +30,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+    
+    // MARK: Screen transitions
+    
+    func runCore(withUser user: UserModel) {
+        guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
+            fatalError("No SceneDelegate exists")
+        }
+        coreRouter = .init(user: user)
+        sceneDelegate.window?.rootViewController = TabBarController()
+    }
+    
+    func runAuth() {
+        guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
+            fatalError("No SceneDelegate exists")
+        }
+        coreRouter = nil
+        sceneDelegate.window?.rootViewController = AuthLogInViewController()
+    }
 
 }
 

@@ -52,14 +52,14 @@ class AuthLoginView: UIView {
         return lbl
     }()
     
-    public let usernameField: UIView = {
-        let lbl = CustomTextFieldView(label: "Username", placeholder: "Enter your username", contentType: UITextContentType.username)
+    public let usernameField: CustomTextFieldView = {
+        let lbl = CustomTextFieldView(label: "Username", placeholder: "Enter the username", contentType: UITextContentType.username)
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
     
-    public let passwordField: UIView = {
-        let lbl = CustomTextFieldView(label: "Password", placeholder: "Enter your password", contentType: UITextContentType.password)
+    public let passwordField: CustomTextFieldView = {
+        let lbl = CustomTextFieldView(label: "Password", placeholder: "Enter the password", contentType: UITextContentType.password)
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
@@ -74,16 +74,17 @@ class AuthLoginView: UIView {
     
     public let gotoSignUpButton: UIButton = {
         let button = UIButton(configuration: .plain())
-        button.setTitle("Or Sign Up", for: .normal)
+        button.setTitle("or Sign Up", for: .normal)
         button.tintColor = .gray
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    public init(_ gotoSignUp: Selector) {
+    public init(_ enterButton: Selector, _ gotoSignUp: Selector) {
         super.init(frame: .zero)
         backgroundColor = UIColor(named: "appDark")
         
+        confirmButton.addTarget(nil, action: enterButton, for: .touchUpInside)
         gotoSignUpButton.addTarget(nil, action: gotoSignUp, for: .touchUpInside)
         
         addSubview(topIconView)
