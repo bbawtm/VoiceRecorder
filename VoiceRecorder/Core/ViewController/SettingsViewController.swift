@@ -73,8 +73,7 @@ class SettingsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? SettingsCellViewInterface else {
-            print("Unable to identify cell")
-            return
+            fatalError("Unable to identify cell")
         }
         cell.performAction()
     }

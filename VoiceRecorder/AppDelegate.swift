@@ -31,6 +31,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
+    // MARK: Display alert
+    
+    public func displayAlert(title: String, description: String, buttonTitle: String = "OK") {
+        let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: buttonTitle, style: .cancel))
+        
+        let scene = UIApplication.shared.connectedScenes.first
+        if let sceneDelegate = (scene?.delegate as? SceneDelegate) {
+            sceneDelegate.window?.rootViewController?.present(alert, animated: true)
+        }
+    }
+    
     // MARK: Screen transitions
     
     func runCore(withUser user: UserModel) {

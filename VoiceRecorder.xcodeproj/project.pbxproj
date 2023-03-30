@@ -39,6 +39,7 @@
 		948B4FF829D0366E00ED1F3B /* AuthLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948B4FF729D0366E00ED1F3B /* AuthLoginView.swift */; };
 		948B4FFA29D0382300ED1F3B /* AuthSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948B4FF929D0382300ED1F3B /* AuthSignUpView.swift */; };
 		948B4FFC29D05B6300ED1F3B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 948B4FFB29D05B6300ED1F3B /* README.md */; };
+		94DDC85C29D2043B0068162E /* SettingsUserProfileCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94DDC85B29D2043B0068162E /* SettingsUserProfileCellNib.xib */; };
 		94ED28F929A750D000111C8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ED28F829A750D000111C8F /* AppDelegate.swift */; };
 		94ED28FB29A750D000111C8F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ED28FA29A750D000111C8F /* SceneDelegate.swift */; };
 		94ED290229A750D000111C8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94ED290129A750D000111C8F /* Assets.xcassets */; };
@@ -109,6 +110,7 @@
 		948B4FF729D0366E00ED1F3B /* AuthLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLoginView.swift; sourceTree = "<group>"; };
 		948B4FF929D0382300ED1F3B /* AuthSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSignUpView.swift; sourceTree = "<group>"; };
 		948B4FFB29D05B6300ED1F3B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		94DDC85B29D2043B0068162E /* SettingsUserProfileCellNib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsUserProfileCellNib.xib; sourceTree = "<group>"; };
 		94ED28F529A750D000111C8F /* VoiceRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94ED28F829A750D000111C8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94ED28FA29A750D000111C8F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			children = (
 				9478069B29AB630800CB8A64 /* SettingsLinkTableCellNib.xib */,
 				9478069D29AB631300CB8A64 /* SettingsToggleTableCellNib.xib */,
+				94DDC85B29D2043B0068162E /* SettingsUserProfileCellNib.xib */,
 			);
 			path = Nibs;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9478069E29AB631300CB8A64 /* SettingsToggleTableCellNib.xib in Resources */,
+				94DDC85C29D2043B0068162E /* SettingsUserProfileCellNib.xib in Resources */,
 				94ED290529A750D000111C8F /* LaunchScreen.storyboard in Resources */,
 				9478069C29AB630800CB8A64 /* SettingsLinkTableCellNib.xib in Resources */,
 				948B4FFC29D05B6300ED1F3B /* README.md in Resources */,

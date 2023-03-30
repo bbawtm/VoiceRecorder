@@ -8,6 +8,9 @@
 import UIKit
 import AVFoundation
 
+import FirebaseCore
+import FirebaseAuth
+
 
 class HistoryViewController: UITableViewController, PlayerDelegate, AVAudioPlayerDelegate {
     
@@ -19,6 +22,11 @@ class HistoryViewController: UITableViewController, PlayerDelegate, AVAudioPlaye
     override func viewDidLoad() {
         super.viewDidLoad()
         coreRouter!.linkHistoryVC(self)
+        
+        // BEGIN DEBUG
+        let firebaseAuth = Auth.auth()
+        try! firebaseAuth.signOut()
+        // END DEBUG
         
         tableView.backgroundColor = UIColor(named: "appDark")
         tableView.register(UINib(nibName: "EachTableCellNib", bundle: .main), forCellReuseIdentifier: "HistoryTableCell")
@@ -89,8 +97,7 @@ class HistoryViewController: UITableViewController, PlayerDelegate, AVAudioPlaye
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryTableCell") as? EachTableCellView else {
-            print("Unknown cell type")
-            return UITableViewCell()
+            fatalError("Unknown cell type")
         }
         guard let model = getModel(forIndex: indexPath) else {
             return UITableViewCell()

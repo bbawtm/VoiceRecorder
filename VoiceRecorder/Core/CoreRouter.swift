@@ -29,6 +29,7 @@ class CoreRouter {
     
     // Initializing
     public init(user: UserModel) {
+        print(user)
         userModel = user
     }
     

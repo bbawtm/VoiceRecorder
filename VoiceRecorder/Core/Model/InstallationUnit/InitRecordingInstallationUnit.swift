@@ -31,7 +31,6 @@ class InitRecordingInstallationUnit: InstallationUnitProtocol {
                 realm.add(newDataUnit)
                 return newDataUnit
             }
-            print("dd")
         } else if count == 1 {
             return dataUnits[0]
         }

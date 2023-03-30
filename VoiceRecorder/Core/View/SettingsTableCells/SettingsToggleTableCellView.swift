@@ -31,8 +31,7 @@ class SettingsToggleTableCellView: UITableViewCell, SettingsCellViewInterface {
     
     @IBAction func toggleDidPressed(sender: UISwitch) {
         guard sender === toggleSwitch else {
-            print("Unrecognised toggle pressed")
-            return
+            fatalError("Unrecognised toggle pressed")
         }
         toggleCallback?(toggleSwitch.isOn)
     }

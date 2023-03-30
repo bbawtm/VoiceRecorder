@@ -33,6 +33,8 @@ class AppropriateFormats {
         .init(description: "ULaw", format: kAudioFormatULaw, fileExtensions: ["wav", "aif", "aiff", "aifc", "caf", "snd", "au"])
     ]
     
+    public static let ignoredList: [String] = [".DS_Store"]
+    
     public static let allExtensions: [String] = {
         formats.flatMap { $0.fileExtensions }
     }()

@@ -19,28 +19,44 @@ class UserModel {
     
     public static func logIn(email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-            print("Log in: \(error?.localizedDescription ?? "nil")")
             setupModel(authResult, error)
         }
     }
     
     public static func signUp(email: String, password: String) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            print("Created: \(error?.localizedDescription ?? "nil")")
             setupModel(authResult, error)
         }
     }
     
     private static func setupModel(_ authResult: AuthDataResult?, _ error: Error?) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            fatalError("No AppDelegate found")
+        }
         if let error {
-            print("Got error \(error.localizedDescription)")
+            appDelegate.displayAlert(title: "Error", description: error.localizedDescription)
             return
         }
         guard let authResult else {
-            print("((")
+            appDelegate.displayAlert(title: "Error", description: "No auth result")
+            return
+        }
+        guard authResult.user.isEmailVerified == true else {
+            appDelegate.displayAlert(title: "E-mail verification", description: "Please, check your incoming emails for verification")
+            _ = UserModel.signOut()
             return
         }
         setupModel(authResult.user)
+    }
+    
+    public static func signOut() -> Bool {
+        do {
+            try Auth.auth().signOut()
+            return true
+        } catch {
+            print(error.localizedDescription)
+            return false
+        }
     }
     
     public static func setupModel(_ user: User) {

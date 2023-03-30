@@ -79,8 +79,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate, PlayerDe
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableCell") as? EachTableCellView else {
-            print("Unknown cell type")
-            return UITableViewCell()
+            fatalError("Unknown cell type")
         }
         guard 0 <= indexPath.item && indexPath.item < currentManagingFiles.count else {
             print("IndexPath.item index error")
