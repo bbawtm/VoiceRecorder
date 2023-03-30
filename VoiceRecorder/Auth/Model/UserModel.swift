@@ -42,7 +42,10 @@ class UserModel {
             return
         }
         guard authResult.user.isEmailVerified == true else {
-            appDelegate.displayAlert(title: "E-mail verification", description: "Please, check your incoming emails for verification")
+            authResult.user.sendEmailVerification() { error in
+                appDelegate.displayAlert(title: "Error", description: error?.localizedDescription ?? "Sending email failure")
+            }
+            appDelegate.displayAlert(title: "E-mail verification", description: "Please, check your incoming emails for verification. We will send you the link again")
             _ = UserModel.signOut()
             return
         }
